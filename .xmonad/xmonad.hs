@@ -15,6 +15,10 @@ import XMonad.Util.SpawnOnce
 import XMonad.Util.Run
 import XMonad.Layout.Spacing
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.DynamicLog(dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
+
+import Data.Maybe (fromJust)
+import qualified Data.Map as M
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -30,11 +34,11 @@ myFocusFollowsMouse = False
 
 -- Whether clicking on a window to focus also passes the click to the window
 myClickJustFocuses :: Bool
-myClickJustFocuses = False
+myClickJustFocuses = True
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 1
+myBorderWidth   = 2
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -53,6 +57,13 @@ myModMask       = mod1Mask
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
 myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..] -- (,) == \x y -> (x,y)
+clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
+    where i = fromJust $ M.lookup ws myWorkspaceIndices
+
+windowCount :: X (Maybe String)
+windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
+
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -249,7 +260,7 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
-myLogHook = return ()
+--myLogHook = return ()
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -268,17 +279,12 @@ myStartupHook = do
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
+--
+
 main = do
   xmproc <- spawnPipe "xmobar ~/.config/xmobar/xmobarrc"
-  xmonad $ docks defaults
-
--- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will
--- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
---
-defaults = def {
+  xmonad $ docks def
+	  {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
@@ -297,9 +303,25 @@ defaults = def {
         layoutHook         = myLayoutHook,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook,
+		logHook            = dynamicLogWithPP xmobarPP
+						{ ppOutput = hPutStrLn xmproc
+                        , ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]"           -- Current workspace in xmobar
+                        , ppVisible = xmobarColor "#98be65" "" . clickable              -- Visible but not current workspace:
+                        , ppHidden = xmobarColor "#82AAFF" "" . wrap "*" "" . clickable -- Hidden workspaces in xmobar
+                        , ppHiddenNoWindows = xmobarColor "#c792ea" ""  . clickable		-- Hidden workspaces (no windows)
+                        , ppTitle = xmobarColor "#b3afc2" "" . shorten 60               -- Title of active window in xmobar
+                        , ppSep =  "<fc=#666666> | </fc>"                    			-- Separators in xmobar
+                        , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"            -- Urgent workspace
+                        , ppExtras  = [windowCount]                                     -- # of windows current workspace
+                        , ppOrder  = \(ws:t:ex) -> [ws]++ex++[t]
+                        }, 
         startupHook        = myStartupHook
     }
+
+-- A structure containing your configuration settings, overriding
+-- fields in the default config. Any you don't override, will
+-- use the defaults defined in xmonad/XMonad/Config.hs
+--
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
 help :: String
