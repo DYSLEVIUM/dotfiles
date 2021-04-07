@@ -104,3 +104,6 @@ source $ZSH/oh-my-zsh.sh
 #
 # Running neofetch
 neofetch
+#
+# Running starship promt
+eval "$(starship init zsh)"
