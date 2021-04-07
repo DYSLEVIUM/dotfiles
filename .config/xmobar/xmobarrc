@@ -1,5 +1,5 @@
 Config {
-        font = "xft:FiraCode Nerd Font:size=10:antialias=true",
+        font = "xft:FiraCode Nerd Font:size=9:antialias=true",
         bgColor = "#282c34",
         fgColor = "#ff6c6b",
         position = TopW L 100,
