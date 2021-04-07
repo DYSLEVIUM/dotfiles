@@ -1,9 +1,9 @@
 Config {
-        font = "xft:FiraCode Nerd Font:size=9:antialias=true",
+        font = "xft:FiraCode Nerd Font:size=10:antialias=true:hinting=true",
         bgColor = "#282c34",
         fgColor = "#ff6c6b",
         position = TopW L 100,
-        lowerOnStart = True,
+		lowerOnStart = True,
         hideOnStart = False,
         allDesktops = True,
         persistent = True,
@@ -11,32 +11,16 @@ Config {
               -- Time and date
                     Run Date "%a %b %d %Y - (%H:%M:%S)" "date" 10
                       -- Cpu usage in percent
-                    , Run Cpu ["-t", "CPU:(<total>%)","-H","50","--high","red"] 20
+                    , Run Cpu ["-t", "CPU: (<total>%)","-H","50","--high","red"] 20
                       -- Ram used number and percent
                     , Run Memory ["-t", "RAM: <used>M (<usedratio>%)"] 20
                       -- Disk space free
                     , Run DiskU [("/", "HDD: <free> free")] [] 60
-                      -- Runs a standard shell command 'uname -r' to get kernel version
-                    , Run Com "uname" ["-r"] "" 3600
 					, Run DynNetwork ["-t","Net: DW:<rx> UP:<tx>","-H","2000","-h","red"] 10
 					, Run Com "whoami" [] "" 3600
-                    ,Run Battery [ "--template" , "B: <acstatus>"
-                                , "--L" , "15"
-                                , "--H" , "75"
-                                , "--low"      , "darkred"
-                                , "--normal"   , "darkorange"
-                                , "--high"     , "#1ABC9C"
-                                , "--" -- battery specific options
-                                       -- discharging status
-                                       , "-o"	, "<left>% (<timeleft>)"
-                                       -- AC "on" status
-                                       , "-O"	, "<fc=#dAA520>Charging</fc>"
-                                       -- charged status
-                                       , "-i"	, "<fc=#1ABC9C>Charged</fc>"
-                                ] 50
                     , Run UnsafeStdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "<fc=#98C379>%whoami%</fc>}{<fc=#ABB2BF>%uname%</fc><fc=#666666>|</fc><fc=#E5C07B>%cpu%</fc><fc=#666666>|</fc><fc=#E06C75>%memory%</fc><fc=#666666>|</fc><fc=#61AFEF>%disku%</fc><fc=#666666>|</fc><fc=#56B6C2>%dynnetwork%</fc><fc=#666666>|</fc><fc=#C678DD>%date%</fc>"
+       , template = "<fc=#98C379>%whoami%</fc><fc=#666666> | </fc>%UnsafeStdinReader%}{<fc=#666666> | </fc><fc=#E5C07B>%cpu%</fc><fc=#666666> | </fc><fc=#E06C75>%memory%</fc><fc=#666666> | </fc><fc=#61AFEF>%disku%</fc><fc=#666666> | </fc><fc=#56B6C2>%dynnetwork%</fc><fc=#666666> | </fc><fc=#C678DD>%date%</fc>"
        }
