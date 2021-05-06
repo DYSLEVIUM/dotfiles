@@ -23,11 +23,11 @@ set smartindent                         " makes indenting smart
 set smarttab							" makes tabbing smarter will realize you have 2 vs 4
 set mouse=a								" enables mouse
 set autoindent							" good auto indent
-set shiftwidth=4
+set shiftwidth=2
 set spelllang=en_us						" setting spell language
 set spell								" spell check
 set showmatch                           " show matching brackets
-set tabstop=4                           " render TABs
+set tabstop=2                           " render TABs
 set hlsearch							" highlight search results
 set cursorline                          " enable highlighting of the current line
 set background=dark                     " tell vim what the background color looks like
