@@ -12,7 +12,7 @@ disabled = true
 
 [directory]
 truncation_length = 3
-diabled = false
+disabled = false
 truncate_to_repo = true
 format = "[$path]($style)[$read_only]($read_only_style) "
 
