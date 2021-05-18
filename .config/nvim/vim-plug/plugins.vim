@@ -18,6 +18,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'joshdick/onedark.vim'
     " conquer of completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " ale linter
+    Plug 'dense-analysis/ale'
     " neoformat
     Plug 'sbdchd/neoformat'
 call plug#end()
