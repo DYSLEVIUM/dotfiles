@@ -14,9 +14,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'scrooloose/NERDTree'
     " auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
-	" themes
-	Plug 'joshdick/onedark.vim'
-	" conquer of completion
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+    " themes
+    Plug 'joshdick/onedark.vim'
+    " conquer of completion
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " neoformat
+    Plug 'sbdchd/neoformat'
 call plug#end()
