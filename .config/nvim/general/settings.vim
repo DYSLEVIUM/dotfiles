@@ -56,3 +56,17 @@ set statusline+=\ [%n]
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
+let g:ale_linters = {
+    \ 'python': ['pylint'],
+    \ 'vim': ['vint'],
+    \ 'cpp': ['clang'],
+    \ 'c': ['clang']
+\}
+
+" custom setting for clangformat
+let g:neoformat_cpp_clangformat = {
+    \ 'exe': 'clang-format',
+    \ 'args': ['--style="Google"']
+\}
+let g:neoformat_enabled_cpp = ['clangformat']
+let g:neoformat_enabled_c = ['clangformat']
