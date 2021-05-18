@@ -14,12 +14,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'scrooloose/NERDTree'
     " auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
-    " themes
-    Plug 'joshdick/onedark.vim'
+	  " themes
+  	Plug 'joshdick/onedark.vim'
+    " statusline
+	  Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
     " conquer of completion
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    " ale linter
+	  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " linter
     Plug 'dense-analysis/ale'
     " neoformat
-    Plug 'sbdchd/neoformat'
+    Plug 'sbdchd/neoformat'    
 call plug#end()
