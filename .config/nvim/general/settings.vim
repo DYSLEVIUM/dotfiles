@@ -21,7 +21,7 @@ set lazyredraw							" redraws the screen when it need to
 set t_Co=256                            " support 256 colors
 set smartindent                         " makes indenting smart
 set smarttab							" makes tabbing smarter will realize you have 2 vs 4
-"set mouse=a								" enables mouse
+set mouse=a								" enables mouse
 set autoindent							" good auto indent
 set shiftwidth=2
 set spelllang=en_us						" setting spell language
@@ -55,3 +55,12 @@ set autochdir                           " your working directory will always be 
 "set statusline+=\ [%n]
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " default location
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
+    augroup END
+end
