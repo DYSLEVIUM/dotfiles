@@ -1,1 +1,5 @@
-{"dependencies":{}}
+{
+  "dependencies": {
+    "coc-pyright": ">=1.1.156"
+  }
+}
