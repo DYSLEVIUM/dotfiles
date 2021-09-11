@@ -38,7 +38,7 @@ myClickJustFocuses = True
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 2
+myBorderWidth   = 1
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -203,9 +203,9 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- Dimensions are given as (Border top bottom right left)
 mySpacing = spacingRaw False             -- Only for >1 window
                        -- The bottom edge seems to look narrower than it is
-                       (Border 8 8 8 8) -- Size of screen edge gaps
+                       (Border 4 4 4 4) -- Size of screen edge gaps
                        True             -- Enable screen edge gaps
-                       (Border 8 8 8 8) -- Size of window gaps
+                       (Border 4 4 4 4) -- Size of window gaps
                        True             -- Enable window gaps
 
 myLayoutHook = avoidStruts $ mySpacing $ tiled ||| Mirror tiled ||| Full
