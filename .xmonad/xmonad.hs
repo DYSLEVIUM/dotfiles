@@ -21,12 +21,11 @@ import Data.Maybe (fromJust)
 import qualified Data.Map as M
 
 import qualified XMonad.StackSet as W
-import qualified Data.Map        as M
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "kitty"
+myTerminal = "kitty"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -38,14 +37,14 @@ myClickJustFocuses = True
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 1
+myBorderWidth = 1
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
 -- ("right alt"), which does not conflict with emacs keybindings. The
 -- "windows key" is usually mod4Mask.
 --
-myModMask       = mod4Mask
+myModMask = mod4Mask
 
 -- The default number of workspaces (virtual screens) and their names.
 -- By default we use numeric strings, but any string may be used as a
@@ -67,7 +66,7 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#ABB2BF"
+myNormalBorderColor = "#ABB2BF"
 myFocusedBorderColor = "#61AFEF"
 
 ------------------------------------------------------------------------
@@ -272,7 +271,6 @@ myEventHook = mempty
 -- By default, do nothing.
 myStartupHook = do
   spawnOnce "nitrogen --restore &"
-  spawnOnce "picom &"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -284,7 +282,7 @@ myStartupHook = do
 main = do
   xmproc <- spawnPipe "xmobar ~/.config/xmobar/xmobarrc"
   xmonad $ docks def
-	  {
+        {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
@@ -303,14 +301,14 @@ main = do
         layoutHook         = myLayoutHook,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-		logHook            = dynamicLogWithPP xmobarPP
-						{ ppOutput = hPutStrLn xmproc
+                logHook            = dynamicLogWithPP xmobarPP
+                                                { ppOutput = hPutStrLn xmproc
                         , ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]"           -- Current workspace in xmobar
                         , ppVisible = xmobarColor "#98be65" "" . clickable              -- Visible but not current workspace:
                         , ppHidden = xmobarColor "#82AAFF" "" . wrap "*" "" . clickable -- Hidden workspaces in xmobar
-                        , ppHiddenNoWindows = xmobarColor "#c792ea" ""  . clickable		-- Hidden workspaces (no windows)
+                        , ppHiddenNoWindows = xmobarColor "#c792ea" ""  . clickable             -- Hidden workspaces (no windows)
                         , ppTitle = xmobarColor "#b3afc2" "" . shorten 60               -- Title of active window in xmobar
-                        , ppSep =  "<fc=#666666> | </fc>"                    			-- Separators in xmobar
+                        , ppSep =  "<fc=#666666> | </fc>"                                       -- Separators in xmobar
                         , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"            -- Urgent workspace
                         , ppExtras  = [windowCount]                                     -- # of windows current workspace
                         , ppOrder  = \(ws:t:ex) -> [ws]++ex++[t]
