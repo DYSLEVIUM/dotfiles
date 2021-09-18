@@ -5,7 +5,7 @@ syntax enable                           " enables syntax highlighing
 set hidden                              " required to keep multiple buffers open multiple buffers
 set encoding=UTF-8                      " The encoding displayed
 "set number relativenumber
-set rnu                                 " relative numbering starts from 0
+set  nu rnu                             " relative numbering and absolute numbering
 set pumheight=10                        " makes popup menu smaller
 set fileencoding=utf-8                  " the encoding written to file
 set ruler              			        " show the cursor position all the time
