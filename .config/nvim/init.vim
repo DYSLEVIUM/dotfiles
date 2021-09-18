@@ -5,3 +5,4 @@ source $HOME/.config/nvim/themes/airline.vim
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/plug-config/ale.vim
 source $HOME/.config/nvim/plug-config/neoformat.vim
+source $HOME/.config/nvim/plug-config/nerdtree.vim
