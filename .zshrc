@@ -11,7 +11,6 @@ export ZSH="/home/dyslevium/.oh-my-zsh"
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="bira"
 
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -77,6 +76,13 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker docker-compose)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# Default editor
+export EDITOR=nvim
+
+# Aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
