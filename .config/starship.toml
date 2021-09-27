@@ -80,4 +80,3 @@ stashed = "📦 "
 modified = "📝 ×${count}"
 staged = "🗃️  ×${count}"
 renamed = "📛 ×${count}"
-d
