@@ -15,7 +15,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
 	  " themes
-  	Plug 'joshdick/onedark.vim'
+  	Plug 'monsonjeremy/onedark.nvim'
     " statusline
 	  Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
