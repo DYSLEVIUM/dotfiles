@@ -2,4 +2,4 @@
 nitrogen --restore &
 
 #	compositor
-picom &
+picom -f &
