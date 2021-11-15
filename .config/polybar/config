@@ -18,12 +18,12 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #131416
-background-alt = #444
+background = #282c34
+background-alt = #393f4a
 background-light = #d4d0a7
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #dfdfdf
+foreground = #abb2bf
+foreground-alt = #abb2bf
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
@@ -165,7 +165,7 @@ type = internal/bspwm
 
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= ${colors.blue}
 label-focused-padding = 2
 
 label-occupied = %index%
