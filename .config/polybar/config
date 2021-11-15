@@ -1,4 +1,5 @@
-;==========================================================
+;
+;=========================================================
 ;
 ;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
@@ -18,11 +19,12 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+background = #131416
 background-alt = #444
+background-light = #d4d0a7
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
-foreground-alt = #555
+foreground-alt = #dfdfdf
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
@@ -33,6 +35,7 @@ blue        = #7AA2F7
 magenta     = #AD8EE6
 cyan        = #444B6A
 white       = #FFFFFF
+
 
 [bar/left]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -69,8 +72,51 @@ wm-restack = bspwm i3
 
 override-redirect = true
 
+
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+
+
+[bar/title]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 13%
+height = 24
+offset-x = 18%
+offset-y = 7px
+radius=8
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.green}
+
+line-size = 2
+line-color = #f00
+
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Fira Code Medium:pixelsize=10;1
+font-1 = Material Design Icons:pixelsize=11:style:Regular;1
+;font-2 = FontAwesome:pixelsize=11;1
+;font-3 = unifont:fontformat=truetype:size=8:antialias=true;0
+;font-4 = siji:pixelsize=14;1
+
+modules-center = xwindow
+
+wm-restack = bspwm i3
+
+override-redirect = true
+
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
 
 [bar/mid]
 width = 22%
@@ -129,7 +175,7 @@ padding-left = 0
 padding-right = 1
 
 
-font-0 = FiraCode Nerd Font Mono:pixelsize=10;1
+font-0 = FiraCode Nerd Font:pixelsize=10;1
 font-1 = Material Icons:pixelsize=13:style:Regular;1
 font-2 = FontAwesome:pixelsize=11;1
 font-3 = Material Design Icons:pixelsize=13:style:Regular;1
@@ -144,9 +190,33 @@ override-redirect = true
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+
+
+
+
+
+
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.secondary}
+format-background = ${colors.background-alt}
+format-padding = 2
+
+label-layout = %layout%
+label-layout-underline = ${colors.secondary}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
 
 [module/filesystem]
 type = internal/fs
@@ -154,9 +224,15 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted =  %used%:%total% 
+label-mounted-underline = #989719
+label-mounted-padding = 2
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+label-unmounted-padding = 2
+
+label-mounted-background = ${colors.background-alt}
+label-unmounted-background = ${colors.background-alt}
 
 [module/bspwm]
 type = internal/bspwm
@@ -189,7 +265,7 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
@@ -197,11 +273,11 @@ label-mode-background = ${colors.primary}
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
-label-focused-padding = 2
+label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-padding = 2
+label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
@@ -212,7 +288,7 @@ label-visible-padding = ${self.label-focused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -278,11 +354,11 @@ type = internal/network
 interface = wlp3s0
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected>
 format-connected-underline = #9f78e1
 label-connected = %essid%
 
-format-disconnected =
+format-disconnected = 
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
@@ -297,7 +373,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp0s3
+interface = virbr0-nic
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -310,83 +386,41 @@ format-disconnected =
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
-
+;
 [module/sep]
 type = custom/text
 content=|
 content-foreground = #555
+
 
 [module/date]
 type = internal/date
 interval = 1
 
 date = "%a %d.%m.%Y"
-date-alt = "%a %d-%m-%Y"
+date-alt = "%a %d.%m.%Y"
 
-time = "%a %d %b %H:%M:%S"
-time-alt = "%H:%M - %a %d.%m %Y"
-
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
+time = %a %d %b %H:%M
+time-alt = %H:%M - %a %d.%m.%Y
 
 format-padding = 2
 
 label = %time%
 
-[module/pulseaudio]
+[module/volume]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+format-volume = <label-volume>
+label-volume = %{F#e002a5}󰎆 %{F-}%percentage%%
 label-volume-foreground = ${root.foreground}
-
-label-muted = 🔇 muted
+label-muted = "  󰎊  "
 label-muted-foreground = #666
+format-padding = 1
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+ramp-volume-foreground = ${color.magenta}
+ramp-volume-0 = 
 
-[module/alsa]
-type = internal/alsa
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
