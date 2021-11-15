@@ -15,7 +15,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
 	  " themes
-  	Plug 'monsonjeremy/onedark.nvim'
+  	Plug 'joshdick/onedark.vim'
     " statusline
 	  Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -25,4 +25,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'dense-analysis/ale'
     " neoformat
     Plug 'sbdchd/neoformat'    
+    " code highlighting
+    Plug 'nvim-treesitter/nvim-treesitter'
+    " tabline plugin
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'romgrk/barbar.nvim'
+
 call plug#end()
