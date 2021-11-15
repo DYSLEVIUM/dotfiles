@@ -34,25 +34,9 @@ set background=dark                     " tell vim what the background color loo
 set showtabline=2                       " always show tabs
 set updatetime=300                      " faster completion
 set timeoutlen=500                      " by default timeoutlen is 1000 ms
-set formatoptions-=cro                  " stop newline continution of comments
+set formatoptions=cro                  " stop newline continution of comments
 set clipboard=unnamedplus               " copy paste between vim and everything else
 set autochdir                           " your working directory will always be the same as your working directory
-
-" custom statusline
-"set laststatus=2
-"set statusline=
-
-" left side
-"set statusline+=\ %M
-"set statusline+=\ %y
-"set statusline+=\ %r
-"set statusline+=\ %F
-
-" right side
-"set statusline+=%=
-"set statusline+=\ %c:%l/%L
-"set statusline+=\ %p%%
-"set statusline+=\ [%n]
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
