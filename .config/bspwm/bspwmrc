@@ -2,7 +2,7 @@
 
 # autostart
 picom -f &
-feh --bg-fill --randomize ~/wallpapers/* &
+feh --bg-fill --randomize ~/wallpapers/static/* &
 ~/.config/polybar/launch.sh &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
