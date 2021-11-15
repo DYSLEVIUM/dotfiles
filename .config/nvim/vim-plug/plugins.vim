@@ -25,8 +25,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'dense-analysis/ale'
     " neoformat
     Plug 'sbdchd/neoformat'    
-    " code highlighting
-    Plug 'nvim-treesitter/nvim-treesitter'
     " tabline plugin
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'romgrk/barbar.nvim'
