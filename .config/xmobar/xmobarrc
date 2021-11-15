@@ -24,5 +24,5 @@ Config {
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %UnsafeStdinReader%}{<fc=#666666> | </fc><fc=#ECBE7B><action=`kitty -e bpytop`>%cpu%</action></fc><fc=#666666> | </fc><fc=#FF6C6B><action=`kitty -e bpytop`>%memory%</action></fc><fc=#666666> | </fc><fc=#A9A1E1><action=`kitty -e bpytop`>%disku%</action></fc><fc=#666666> | </fc><fc=#98BE65><action=`kitty -e bpytop`>%dynnetwork%</action></fc><fc=#666666> | </fc><fc=#C678DD>%date%</fc> "
+       , template = " %UnsafeStdinReader%}{<fc=#666666> | </fc><fc=#ECBE7B><action=`konsole -e bpytop`>%cpu%</action></fc><fc=#666666> | </fc><fc=#FF6C6B><action=`konsole -e bpytop`>%memory%</action></fc><fc=#666666> | </fc><fc=#A9A1E1><action=`konsole -e bpytop`>%disku%</action></fc><fc=#666666> | </fc><fc=#98BE65><action=`konsole -e bpytop`>%dynnetwork%</action></fc><fc=#666666> | </fc><fc=#C678DD>%date%</fc> "
        }
