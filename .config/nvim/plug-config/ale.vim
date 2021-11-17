@@ -5,3 +5,6 @@ let g:ale_linters = {
     \ 'cc': ['clang'],
     \ 'c': ['clang']
 \}
+
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_text_changed = 'always'
