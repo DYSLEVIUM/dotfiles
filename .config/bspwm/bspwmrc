@@ -2,7 +2,7 @@
 
 # autostart
 feh --bg-fill --randomize ~/wallpapers/static/* &
-~/.config/polybar/launch.sh &
+polybar mybar &
 picom -f &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
