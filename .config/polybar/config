@@ -18,9 +18,8 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #282c34
-background-alt = #393f4a
-background-light = #d4d0a7
+background = #282c34ff
+background-alt = #393f4acA
 ;foreground = ${xrdb:color7:#222}
 foreground = #abb2bf
 foreground-alt = #abb2bf
@@ -33,106 +32,63 @@ yellow      = #E0AF68
 blue        = #7AA2F7 
 magenta     = #AD8EE6
 cyan        = #444B6A
-white       = #FFFFFF[colors]
+white       = #FFFFFF
 
-[bar/left]
+[bar/mybar]
 ;monitor = ${env:MONITOR:HDMI-1}
-width = 12%
+width = 98.4%
 height = 24
-offset-x = 12px
-offset-y = 12px
-radius=8
+offset-x = 0.8%
+offset-y = 1.5%
+radius = 8.0
 fixed-center = false
 
 background = ${colors.background}
-foreground = ${colors.green}
-
-line-size = 2
-line-color = #f00
-
-border-color = #00000000
-
-padding-left = 0
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 1
-
-font-0 = Fira Code Medium:pixelsize=10;1
-font-1 = Material Design Icons:pixelsize=11:style:Regular;1
-;font-2 = FontAwesome:pixelsize=11;1
-;font-3 = unifont:fontformat=truetype:size=8:antialias=true;0
-;font-4 = siji:pixelsize=14;1
-
-modules-center = date
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-[bar/mid]
-width = 20%
-height = 24
-offset-x = 40%
-offset-y = 12px
-radius=8
-
-background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 2
 line-color = #f00
 
-border-color = #00000000
-
-padding-left = 0
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 1
-
-font-0 = Fira Code Medium:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=true;0
-font-2 = siji:pixelsize=14;1
-font-3 = FontAwesome:pixelsize=11;1
-
-modules-center = bspwm
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-
-[bar/right]
-width = 12%
-height = 24
-offset-x = 87.5%
-offset-y = 12px
-radius=8
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 2
-line-color = #f00
-
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
 padding-right = 1
 
+module-margin-left = 1
+module-margin-right = 1
 
 font-0 = FiraCode Nerd Font:pixelsize=10;1
-font-1 = Material Icons:pixelsize=13:style:Regular;1
+font-1 = Material Design Icons:pixelsize=11:style:Regular;1
 font-2 = FontAwesome:pixelsize=11;1
-font-3 = Material Design Icons:pixelsize=13:style:Regular;1
+font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-4 = siji:pixelsize=10;1
 
-modules-center = cpu sep memory sep battery
+modules-left = bspwm
+modules-center = xwindow
+modules-right = cpu memory battery date apps
+
+tray-position = right
+tray-padding = 0
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:100:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -258,32 +214,27 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix-font = 4
-format-prefix = "󰍛"
-format-prefix-foreground = ${colors.green}
-format-padding = 1
-
-label = %percentage:2%% 
+format-prefix = "CPU: "
+format-prefix-foreground = ${colors.foreground-alt}
+label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.blue}
-format-padding = 1
-label =  %percentage_used%%
+format-prefix = "RAM: "
+format-prefix-foreground = ${colors.foreground-alt}
+label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-;interface = net1
-interface = wlp3s0
+interfacbspwme = net1
 interval = 3.0
 
-format-connected = <label-connected>
+format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
 label-connected = %essid%
 
-format-disconnected = 
+format-disconnected =
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
@@ -298,7 +249,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = virbr0-nic
+interface = enp0s3
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -311,12 +262,6 @@ format-disconnected =
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
-;
-[module/sep]
-type = custom/text
-content=|
-content-foreground = #555
-
 
 [module/date]
 type = internal/date
@@ -328,22 +273,64 @@ date-alt = "%a %d.%m.%Y"
 time = %a %d %b %H:%M
 time-alt = %H:%M - %a %d.%m.%Y
 
-format-padding = 2
+format-padding = 0
 
 label = %time%
 
-; [module/volume]
-; type = internal/pulseaudio
+[module/pulseaudio]
+type = internal/pulseaudio
 
-; format-volume = <label-volume>
-; label-volume = %{F#e002a5}󰎆 %{F-}%percentage%%
-; label-volume-foreground = ${root.foreground}
-; label-muted = "  󰎊  "
-; label-muted-foreground = #666
-; format-padding = 1
+format-volume = <label-volume> <bar-volume>
+label-volume = VOL %percentage%%
+label-volume-foreground = ${root.foreground}
 
-; ramp-volume-foreground = ${color.magenta}
-; ramp-volume-0 = 
+label-muted = 🔇 muted
+label-muted-foreground = #666
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/alsa]
+type = internal/alsa
+
+format-volume = <label-volume> <bar-volume>
+label-volume = VOL
+label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = " "
+format-muted-foreground = ${colors.foreground-alt}
+label-muted = sound muted
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
@@ -440,6 +427,24 @@ animation-charging-framerate = 750
 ; label-disconnected = 
 ; label-disconnected-foreground = ${colors.red}
 
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
@@ -448,7 +453,7 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = 
 label-open-foreground = ${colors.secondary}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
@@ -459,78 +464,16 @@ menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
 menu-0-1 = power off
 menu-0-1-exec = menu-open-2
-menu-0-2 = logout
-menu-0-2-exec = menu-open-3
 
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
-menu-1-1-exec = systemctl reboot
+menu-1-1-exec = sudo reboot
 
 menu-2-0 = power off
-menu-2-0-exec = systemctl poweroff
+menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
-
-menu-3-0 = logout
-menu-3-0-exec = i3exit logout
-menu-3-1 = cancel
-menu-3-1-exec = menu-open-0
-
-; [module/pulseaudio]
-; type = internal/pulseaudio
-
-; format-volume = <label-volume> <bar-volume>
-; label-volume = VOL %percentage%%
-; label-volume-foreground = ${root.foreground}
-
-; label-muted = 🔇 muted
-; label-muted-foreground = #666
-
-; bar-volume-width = 10
-; bar-volume-foreground-0 = #55aa55
-; bar-volume-foreground-1 = #55aa55
-; bar-volume-foreground-2 = #55aa55
-; bar-volume-foreground-3 = #55aa55
-; bar-volume-foreground-4 = #55aa55
-; bar-volume-foreground-5 = #f5a70a
-; bar-volume-foreground-6 = #ff5555
-; bar-volume-gradient = false
-; bar-volume-indicator = |
-; bar-volume-indicator-font = 2
-; bar-volume-fill = ─
-; bar-volume-fill-font = 2
-; bar-volume-empty = ─
-; bar-volume-empty-font = 2
-; bar-volume-empty-foreground = ${colors.foreground-alt}
-
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [settings]
 screenchange-reload = true
