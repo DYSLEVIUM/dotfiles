@@ -214,7 +214,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "CPU: "
+format-prefix = "CPU:"
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage:2%%
 
@@ -337,7 +337,7 @@ type = internal/battery
 battery = BAT0
 adapter = ADP1
 full-at = 99
-format-charging = <animation-charging> <label-charging>
+format-charging = <animation-charging>  <label-charging>
 format-charging-padding = 1
 
 ; format-discharging = %{B#d4d0a7}bat: <animation-discharging> <label-discharging> %{B- }
