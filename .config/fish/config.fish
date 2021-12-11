@@ -4,15 +4,17 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-# default editor
+# Default editor
 export EDITOR=nvim
 
-# aliases
-alias ls="ls --color=auto"
-alias grep="grep --color=auto"
+# Aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 
-# starship
 starship init fish | source
 
-# neofetch
+# Go to home
+cd
+
+# Running neofetch
 neofetch
