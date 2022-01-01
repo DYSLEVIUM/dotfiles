@@ -13,8 +13,5 @@ alias grep='grep --color=auto'
 
 starship init fish | source
 
-# Go to home
-cd
-
 # Running pfetch
 pfetch
