@@ -16,5 +16,5 @@ starship init fish | source
 # Go to home
 cd
 
-# Running neofetch
-neofetch
+# Running pfetch
+pfetch
