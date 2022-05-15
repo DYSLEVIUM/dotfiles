@@ -1,4 +1,5 @@
 {
+  "coc.preferences.formatOnSaveFiletypes" : ["cc", "cpp", "c", "tsx", "ts", "jsx", "js"],
   "languageserver": {
     "ccls": {
       "command": "ccls",
