@@ -1,6 +1,3 @@
-" set leader key
-let g:mapleader = "\<Space>"
-
 syntax enable                           " enables syntax highlighing
 set hidden                              " required to keep multiple buffers open multiple buffers
 set encoding=UTF-8                      " The encoding displayed
