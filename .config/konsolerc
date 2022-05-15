@@ -1,0 +1,24 @@
+[Desktop Entry]
+DefaultProfile=Pushpakant.profile
+
+[KonsoleWindow]
+AllowMenuAccelerators=true
+RememberWindowSize=false
+
+[MainWindow]
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAQAAAAAAAAAAAAAAAPwCAAAAAvsAAAAcAFMAUwBIAE0AYQBuAGEAZwBlAHIARABvAGMAawAAAAAA/////wAAAMoA////+wAAACIAUQB1AGkAYwBrAEMAbwBtAG0AYQBuAGQAcwBEAG8AYwBrAAAAAAD/////AAAAqQD///8AAAeAAAAD+AAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAACAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIAAAAAAP////8AAAAAAAAAAAAAABwAcwBlAHMAcwBpAG8AbgBUAG8AbwBsAGIAYQByAAAAAAD/////AAAAAAAAAAA=
+ToolBarsMovable=Disabled
+eDP-1 Height 1920x1080=1007
+eDP-1 Width 1920x1080=1892
+eDP-1 XPosition 1920x1080=14
+eDP-1 YPosition 1920x1080=59
+
+[Notification Messages]
+CloseAllEmptyTabs=true
+CloseAllTabs=true
+CloseSingleTab=true
+
+[UiSettings]
+ColorScheme=We10XOSDark
+WindowColorScheme=We10XOSDark
