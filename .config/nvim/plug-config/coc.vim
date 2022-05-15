@@ -9,7 +9,6 @@ let g:coc_global_extensions = [
 \ 'coc-yaml',
 \ 'coc-python',
 \ 'coc-emmet',
-\ 'coc-snippets',
 \ 'coc-tailwindcss',
 \ ]
 
