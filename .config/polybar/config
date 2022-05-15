@@ -17,15 +17,14 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
 background = #282c34ff
 background-alt = #393f4acA
-;foreground = ${xrdb:color7:#222}
 foreground = #abb2bf
 foreground-alt = #abb2bf
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
+
 red         = #F7768E
 green       = #9ECE6A
 yellow      = #E0AF68
@@ -35,7 +34,6 @@ cyan        = #444B6A
 white       = #FFFFFF
 
 [bar/mybar]
-;monitor = ${env:MONITOR:HDMI-1}
 width = 98.4%
 height = 24
 offset-x = 0.8%
@@ -66,7 +64,7 @@ font-4 = siji:pixelsize=10;1
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = cpu memory pulseaudio battery date apps
+modules-right = cpu memory pulseaudio battery date apps wlan eth
 
 tray-position = right
 tray-padding = 0
@@ -225,8 +223,16 @@ format-prefix = "RAM: "
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage_used%%
 
-[module/wlan]
+[network-base]
 type = internal/network
+interval = 5
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
+
+[module/wlan]
+inherit = network-base
+interface-type = wireless
 interfacbspwme = net1
 interval = 3.0
 
@@ -248,8 +254,8 @@ ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
-type = internal/network
-interface = enp0s3
+inherit = network-base
+interface-type = wired
 interval = 3.0
 
 format-connected-underline = #55aa55
