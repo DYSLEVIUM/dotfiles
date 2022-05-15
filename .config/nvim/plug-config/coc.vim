@@ -1,5 +1,4 @@
 let g:coc_global_extensions = [
-\ 'coc-ccls',
 \ 'coc-json',
 \ 'coc-pyright',
 \ 'coc-tsserver',
