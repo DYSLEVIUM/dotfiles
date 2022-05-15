@@ -8,7 +8,9 @@ end
 export EDITOR=nvim
 
 # Aliases
-alias ls='ls --color=auto'
+alias ls='exa'
+alias ll='exa -lah'
+alias ls='exa --tree'
 alias grep='grep --color=auto'
 
 starship init fish | source
