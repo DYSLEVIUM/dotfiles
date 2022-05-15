@@ -8,7 +8,8 @@ end
 export EDITOR=nvim
 
 # Aliases
-alias ls='exa -la'
+alias ls='exa'
+alias ll='exa -la'
 alias tree='exa --tree'
 alias cat='bat'
 alias grep='grep --color=auto'
