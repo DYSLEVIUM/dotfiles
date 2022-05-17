@@ -1,8 +1,7 @@
 syntax enable                           " enables syntax highlighing
 set hidden                              " required to keep multiple buffers open multiple buffers
 set encoding=UTF-8                      " The encoding displayed
-"set number relativenumber
-set  nu rnu                             " relative numbering and absolute numbering
+set number relativenumber               " relative numbering and absolute numbering
 set pumheight=10                        " makes popup menu smaller
 set fileencoding=utf-8                  " the encoding written to file
 set ruler              			        " show the cursor position all the time
@@ -21,17 +20,16 @@ set smarttab							" makes tabbing smarter will realize you have 2 vs 4
 set mouse=a								" enables mouse
 set autoindent							" good auto indent
 set shiftwidth=2
-set spelllang=en_us						" setting spell language
-set spell								" spell check
 set showmatch                           " show matching brackets
 set tabstop=2                           " render TABs
+set expandtab
 set hlsearch							" highlight search results
 set cursorline                          " enable highlighting of the current line
 set background=dark                     " tell vim what the background color looks like
 set showtabline=2                       " always show tabs
 set updatetime=300                      " faster completion
 set timeoutlen=500                      " by default timeoutlen is 1000 ms
-set formatoptions=cro                  " stop newline continution of comments
+set formatoptions=cro                   " stop newline continution of comments
 set clipboard=unnamedplus               " copy paste between vim and everything else
 set autochdir                           " your working directory will always be the same as your working directory
 
