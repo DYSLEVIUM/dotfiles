@@ -41,5 +41,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     " icons
     Plug 'ryanoasis/vim-devicons'
+    
+    " indent
+    Plug 'thaerkh/vim-indentguides'
 
 call plug#end()
