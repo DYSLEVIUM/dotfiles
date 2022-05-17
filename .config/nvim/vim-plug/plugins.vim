@@ -12,8 +12,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'sheerun/vim-polyglot'
     
     " file Explorer
-    Plug 'scrooloose/NERDTree'
-    
+    Plug 'preservim/nerdtree'
+    Plug 'preservim/nerdcommenter'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+
     " auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
     
@@ -23,6 +25,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " statusline
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    
+    " ale
+    Plug 'dense-analysis/ale'
     
     " conquer of completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}    
