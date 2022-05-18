@@ -44,6 +44,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " git
     Plug 'tpope/vim-fugitive'
     
+    " sneak
+    Plug 'justinmk/vim-sneak'
+    
     " icons
     Plug 'ryanoasis/vim-devicons'
     
