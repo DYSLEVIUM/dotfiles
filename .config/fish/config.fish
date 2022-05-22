@@ -13,7 +13,7 @@ alias ll='exa -la'
 alias tree='exa --tree'
 alias cat='bat'
 alias grep='grep --color=auto'
-alias ff='find . | fzf --preview \'bat --color "always" {}\''
+alias fzf='fzf --preview \'bat --color "always" {}\''
 
 starship init fish | source
 
