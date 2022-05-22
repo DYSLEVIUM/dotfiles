@@ -1,4 +1,6 @@
 let g:coc_global_extensions = [
+\ 'coc-snippets',
+\ 'coc-pairs',
 \ 'coc-json',
 \ 'coc-pyright',
 \ 'coc-tsserver',
