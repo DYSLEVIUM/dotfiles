@@ -15,6 +15,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'Xuyuanp/nerdtree-git-plugin'
 
     " themes
+    "Plug 'joshdick/onedark.vim'
     Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
 
     " statusline
