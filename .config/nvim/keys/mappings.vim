@@ -42,11 +42,10 @@ nnoremap <C-l> <C-w>l
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
 
-nnoremap <M-j> ddp
-nnoremap <M-k> ddkP
-
-vmap <M-j> <ESC><C-j>V
-vmap <M-k> <ESC><C-k>V
-
-imap <M-j> <ESC><C-j>i
-imap <M-k> <ESC><C-k>i
+" move lines up or down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
