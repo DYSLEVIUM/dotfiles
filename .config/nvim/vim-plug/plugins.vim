@@ -57,4 +57,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " startify
     Plug 'mhinz/vim-startify'
+    
+    " Vim HardTime
+    Plug 'takac/vim-hardtime'
 call plug#end()
