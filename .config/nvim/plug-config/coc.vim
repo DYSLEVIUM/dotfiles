@@ -11,6 +11,7 @@ let g:coc_global_extensions = [
 \ 'coc-yaml',
 \ 'coc-emmet',
 \ 'coc-tailwindcss',
+\ 'coc-ccls',
 \ ]
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
