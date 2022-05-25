@@ -14,6 +14,8 @@ alias ll='exa -la'
 alias tree='exa --tree'
 alias cat='bat'
 alias grep='grep --color=auto'
+alias cc='clear'
+alias n='nvim'
 
 starship init fish | source
 
