@@ -156,4 +156,14 @@ end
 
 vim.cmd [[ command! LspToggleAutoFormat execute 'lua require("user.lsp.handlers").toggle_format_on_save()' ]]
 
+-- c++ multiple client offset error supression
+local notify = vim.notify
+vim.notify = function(msg, ...)
+  if msg:match("warning: multiple different client offset_encodings") then
+    return
+  end
+
+  notify(msg, ...)
+end
+
 return M
