@@ -81,7 +81,15 @@ end
 M.on_attach = function(client, bufnr)
   -- vim.notify(client.name .. " starting...")
   -- TODO: refactor this into a method that checks if string in list
+  
+  if client.name == "jsonls" then
+    client.resolved_capabilities.document_formatting = false
+  end
 
+  if client.name == "jsonls" then
+    client.resolved_capabilities.code_action = false
+  end
+  
   if client.name == 'clangd' then
     client.resolved_capabilities.document_formatting = false
   end
