@@ -57,7 +57,6 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua"
   use "akinsho/toggleterm.nvim"
   use { "akinsho/bufferline.nvim", tag = "v2.*" }
-  use "glepnir/lspsaga.nvim"
   use "moll/vim-bbye"
   --use "tamago324/lir.nvim"
   --use "ahmedkhalf/project.nvim"
