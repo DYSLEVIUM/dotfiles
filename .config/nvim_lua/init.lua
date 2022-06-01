@@ -595,9 +595,6 @@ require("indent_blankline").setup {
   },
 }
 
-local lspsaga = require("lspsaga")
-lspsaga.init_lsp_saga()
-
 -- gruvbox symbolline fix
 vim.cmd [[highlight SignColumn guibg=dark]]
 vim.cmd [[let g:indent_blankline_filetype_exclude = "startify"]]
