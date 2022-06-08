@@ -1,5 +1,5 @@
 set fish_greeting
-set fish_vi_key_bindings
+fish_vi_key_bindings
 
 # default editor
 set -x EDITOR nvim
