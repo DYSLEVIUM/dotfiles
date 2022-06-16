@@ -20,7 +20,6 @@ alias tree='exa --tree'
 alias cat='bat -p'
 alias grep='grep --color=auto'
 alias docker='sudo docker'
-alias cc='clear'
 alias n='nvim'
 
 function wrap_fzf_file
