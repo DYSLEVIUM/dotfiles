@@ -17,8 +17,8 @@
 ;==========================================================
 
 [colors]
-background = #282c34ff
-background-alt = #393f4acA
+background = #28282800
+background-alt = #3C3836
 foreground = #abb2bf
 foreground-alt = #abb2bf
 primary = #ffb52a
@@ -34,12 +34,16 @@ cyan        = #444B6A
 white       = #FFFFFF
 
 [bar/mybar]
-width = 98.4%
-height = 24
-offset-x = 0.8%
-offset-y = 1.5%
-radius = 8.0
-fixed-center = false
+; width = 98.5%
+; height = 32
+; offset-x = 0.5%
+; offset-y = 1%
+; radius = 16.0
+; fixed-center = false
+; padding = 10
+
+width = 100%
+height = 32
 
 background = ${colors.background}
 foreground = ${colors.foreground}
