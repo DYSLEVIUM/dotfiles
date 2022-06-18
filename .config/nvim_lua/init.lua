@@ -610,3 +610,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   }
 }
+
+-- nvim kitty transparency fix
+vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]
+
