@@ -74,7 +74,7 @@ tray-position = right
 tray-padding = 0
 ;tray-background = #0063ff
 
-;wm-restack = bspwm
+wm-restack = bspwm
 ;wm-restack = i3
 
 ;override-redirect = true
