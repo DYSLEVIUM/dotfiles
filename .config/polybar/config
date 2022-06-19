@@ -25,13 +25,13 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-red         = #F7768E
-green       = #9ECE6A
-yellow      = #E0AF68
-blue        = #7AA2F7 
-magenta     = #AD8EE6
-cyan        = #444B6A
-white       = #FFFFFF
+red         = #FB4934
+green       = #B8BB26
+yellow      = #FABD2F
+blue        = #83A598
+purple      = #D3869B
+aqua        = #8EC07C
+white       = #EBDBB2
 
 [bar/mybar]
 ; width = 98.5%
@@ -43,7 +43,7 @@ white       = #FFFFFF
 ; padding = 10
 
 width = 100%
-height = 32
+height = 28
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -67,8 +67,8 @@ font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-4 = siji:pixelsize=10;1
 
 modules-left = bspwm
-modules-center = xwindow
-modules-right = cpu memory pulseaudio battery date apps wlan eth
+modules-center = date xwindow
+modules-right = cpu memory pulseaudio battery apps wlan eth
 
 tray-position = right
 tray-padding = 0
@@ -124,18 +124,18 @@ type = internal/bspwm
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.blue}
-label-focused-padding = 2
+label-focused-padding = 1
 
 label-occupied = %index%
-label-occupied-padding = 2
+label-occupied-padding = 1
 
 label-urgent = %index%!
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
+label-empty-padding = 1
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -241,7 +241,7 @@ interfacbspwme = net1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+format-connected-underline = ${colors.blue}
 label-connected = %essid%
 
 format-disconnected =
@@ -280,7 +280,7 @@ interval = 1
 date = "%a %d.%m.%Y"
 date-alt = "%a %d.%m.%Y"
 
-time = %a %d %b %H:%M
+time = %a %d %b %H:%M:%S
 time-alt = %H:%M - %a %d.%m.%Y
 
 format-padding = 0
@@ -433,7 +433,7 @@ animation-charging-framerate = 750
 ; ;label-disconnected-font = 1
 
 ; label-connected = 
-; label-connected-foreground = ${colors.cyan}
+; label-connected-foreground = ${colors.aqua}
 ; label-disconnected = 
 ; label-disconnected-foreground = ${colors.red}
 
