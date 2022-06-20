@@ -7,6 +7,7 @@ pgrep -x polybar > /dev/null || polybar mybar &
 pgrep -x nm-applet > /dev/null || nm-applet &
 pgrep -x sxhkd > /dev/null || sxhkd &
 
+# faster key register
 xset r rate 200 30
 
 bspc monitor -d I II III IV V VI VII VIII IX X
