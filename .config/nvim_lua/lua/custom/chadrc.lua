@@ -6,7 +6,10 @@ local M = {}
 -- example of changing theme:
 
 M.ui = {
-   theme = "gruvbox",
+  theme = "gruvbox",
+  statusline = {
+    separator_style = "arrow",
+  }
 }
 
 local override = require "custom.override"
@@ -16,9 +19,6 @@ M.plugins = {
     lspconfig = {
       setup_lspconf = "custom.plugins.lspconfig",
     },
-    statusline = {
-      separator_style = "round",
-    }
   },
   override = {
     ["kyazdani42/nvim-tree.lua"] = override.nvimtree,
