@@ -17,7 +17,8 @@ opt.showmode = false
 
 opt.title = true
 opt.clipboard = "unnamedplus"
-opt.cul = true -- cursor line
+opt.cursorline = true
+opt.wrap = true
 
 -- Indenting
 opt.expandtab = true
@@ -46,6 +47,7 @@ opt.termguicolors = true
 opt.timeoutlen = 400
 opt.undofile = true
 opt.swapfile = false
+opt.writebackup = false
 
 -- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = 250
