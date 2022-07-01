@@ -11,7 +11,7 @@ M.ui = {
   statusline = {
     separator_style = "arrow",
   },
-  transparency = false,
+  transparency = true,
 }
 
 local override = require "custom.override"
