@@ -1,4 +1,4 @@
--- Just an example, supposed to be placed in /lua/custom/
+n example, supposed to be placed in /lua/custom/
 
 local M = {}
 
@@ -7,9 +7,11 @@ local M = {}
 
 M.ui = {
   theme = "gruvbox",
+  theme_toggle = { "gruvbox", "onedark" },
   statusline = {
     separator_style = "arrow",
-  }
+  },
+  transparency = false,
 }
 
 local override = require "custom.override"
