@@ -7,7 +7,7 @@ super + Return
 	kitty
 
 # program launcher
-super + @space
+alt + @space
 	rofi -show run
 
 # make sxhkd reload its configuration files:
@@ -17,10 +17,6 @@ super + Escape
 # browser
 super + b
 	firefox
-
-# tdrop scratchpad
-super + ctrl + Return
-  tdrop -am -w 60% -h 50% -y 25% -x 20% kitty
 
 # tdrop scratchpad
 super + ctrl + Return
