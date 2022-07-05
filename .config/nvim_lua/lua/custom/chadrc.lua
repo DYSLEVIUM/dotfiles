@@ -1,4 +1,4 @@
-n example, supposed to be placed in /lua/custom/
+to be placed in /lua/custom/
 
 local M = {}
 
@@ -7,14 +7,19 @@ local M = {}
 
 M.ui = {
   theme = "gruvbox",
-  theme_toggle = { "gruvbox", "onedark" },
+  theme_toggle = { "gruvbox", "gruvbox_light" },
+  italic_comments = true,
   statusline = {
-    separator_style = "arrow",
+    separator_style = "default",
   },
   transparency = true,
 }
 
 local override = require "custom.override"
+
+M.options = {
+
+}
 
 M.plugins = {
   options = {
@@ -25,6 +30,7 @@ M.plugins = {
   override = {
     ["kyazdani42/nvim-tree.lua"] = override.nvimtree,
     ["nvim-treesitter/nvim-treesitter"] = override.treesitter,
+    ["L3MON4D3/LuaSnip"] = override.luasnip
   },
   user = require "custom.plugins"
 }
