@@ -1,9 +1,9 @@
 local M = {}
 
 M.setup_lsp = function(attach, capabilities)
-   local lspconfig = require "lspconfig"
+  local lspconfig = require "lspconfig"
 
-   local servers = {
+  local servers = {
     "bashls",
     "clangd",
     "cssls",
@@ -27,12 +27,26 @@ M.setup_lsp = function(attach, capabilities)
     "gopls",
   }
 
-   for _, lsp in ipairs(servers) do
-      lspconfig[lsp].setup {
-         on_attach = attach,
-         capabilities = capabilities,
+  local init_options = {}
+  for _, lsp in ipairs(servers) do
+    if lsp == "clangd" then
+      capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+      capabilities.textDocument.semanticHighlighting = true
+      capabilities.offsetEncoding = "utf-16"
+
+      init_options = {
+        clangdFileStatus = true,
+        usePlaceholders = true,
+        completeUnimported = true,
+        semanticHighlighting = true,
       }
-   end
+    end
+    lspconfig[lsp].setup {
+       on_attach = attach,
+       capabilities = capabilities,
+       init_options = init_options,
+    }
+  end
 end
 
 return M
