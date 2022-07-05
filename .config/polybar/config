@@ -1,4 +1,4 @@
-;==========================================================
+==========
 ;
 ;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
@@ -17,8 +17,8 @@
 ;==========================================================
 
 [colors]
-background = #28282800
-background-alt = #3C3836
+background = #4545453F
+background-alt = #D65D0E
 foreground = #abb2bf
 foreground-alt = #abb2bf
 primary = #ffb52a
@@ -26,6 +26,7 @@ secondary = #e60053
 alert = #bd2c40
 
 red         = #FB4934
+orange      = #D65D0E
 green       = #B8BB26
 yellow      = #FABD2F
 blue        = #83A598
@@ -43,24 +44,25 @@ white       = #EBDBB2
 ; padding = 10
 
 width = 100%
-height = 28
+height = 28px
+radius = 0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 2
-line-color = #f00
+line-color = #ff000000
 
 border-size = 0
 border-color = #00000000
 
-padding-left = 0
+padding-left = 1
 padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = FiraCode Nerd Font:pixelsize=10;1
+font-0 = FiraCode Nerd Font:pixelsize=12;1
 font-1 = Material Design Icons:pixelsize=11:style:Regular;1
 font-2 = FontAwesome:pixelsize=11;1
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
@@ -68,7 +70,7 @@ font-4 = siji:pixelsize=10;1
 
 modules-left = bspwm
 modules-center = date xwindow
-modules-right = cpu memory pulseaudio battery apps wlan eth
+modules-right = cpu memory temperature pulseaudio battery apps wlan eth powermenu
 
 tray-position = right
 tray-padding = 0
@@ -122,8 +124,8 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.blue}
+label-focused-underline = ${colors.yellow}
+; label-focused-underline= ${colors.blue}
 label-focused-padding = 1
 
 label-occupied = %index%
@@ -136,6 +138,8 @@ label-urgent-padding = 1
 label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 1
+
+label-occupied-underline = ${colors.white}
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -344,21 +348,56 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
-battery = BAT0
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT1
 adapter = ADP1
 full-at = 99
-format-charging = <animation-charging>  <label-charging>
+low-at = 15
+format-charging = <animation-charging> <label-charging>
 format-charging-padding = 1
+label-charging = %percentage%%
+
+; poll-interval = 5
+
+animation-charging-font = 2
+
+; Only applies if <animation-charging> is used
+; animation-charging-0 = 
+; animation-charging-1 = 
+; animation-charging-2 = 
+; animation-charging-3 = 
+; animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+;animation-charging-0 = %{F#FFB700}%{F-}
+; animation-charging-0 = %{F#FFB700}%{F-}
+; animation-charging-1 = %{F#FFB700}%{F-}
+; animation-charging-2 = %{F#FFB700}%{F-}
+; animation-charging-3 = %{F#FFB700}%{F-}
+; animation-charging-4 = %{F#FFB700}%{F-}
+; animation-charging-5 = %{F#FFB700}%{F-}
+; animation-charging-6 = %{F#FFB700}%{F-}
+; animation-charging-7 = %{F#FFB700}%{F-}
+; animation-charging-8 = %{F#FFB700}%{F-}
+; animation-charging-9 = %{F#FFB700}%{F-}
+; animation-charging-0 = 
+; animation-charging-1 = 
+; animation-charging-2 = 
+; animation-charging-3 = 
+; animation-charging-4 = 
+; animation-charging-foreground = ${colors.foreground-alt}
+; animation-charging-framerate = 750
 
 ; format-discharging = %{B#d4d0a7}bat: <animation-discharging> <label-discharging> %{B- }
-format-discharging = <ramp-capacity>  <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-padding = 1
 
 format-full-prefix = 
 format-full-prefix-foreground = ${colors.yellow}
 format-full-padding = 1
-
-label-charging = %percentage%%
 
 ramp-capacity-font = 2
 ramp-capacity-0 = %{F#D40000}%{F-}
@@ -366,62 +405,43 @@ ramp-capacity-1 = %{F#FFB700}%{F-}
 ramp-capacity-2 = %{F#FFB700}%{F-}
 ramp-capacity-3 = %{F#FFB700}%{F-}
 ramp-capacity-4 = %{F#FFB700}%{F-}
-;ramp-capacity-6 = %{F#FFB700}%{F-}
-;ramp-capacity-7 = %{F#FFB700}%{F-}
-;ramp-capacity-8 = %{F#FFB700}%{F-}
-;ramp-capacity-9 = %{F#FFB700}%{F-}
-;ramp-capacity-10 = %{F#FFB700}%{F-}
-ramp-capacity-foreground = ${colors.foreground-alt}
-;
-;
-;
-animation-charging-font = 2
-;animation-charging-0 = %{F#FFB700}%{F-}
-animation-charging-0 = %{F#FFB700}%{F-}
-animation-charging-1 = %{F#FFB700}%{F-}
-animation-charging-2 = %{F#FFB700}%{F-}
-animation-charging-3 = %{F#FFB700}%{F-}
-;animation-charging-4 = %{F#FFB700}%{F-}
-;animation-charging-5 = %{F#FFB700}%{F-}
-;animation-charging-6 = %{F#FFB700}%{F-}
-;animation-charging-7 = %{F#FFB700}%{F-}
-;animation-charging-8 = %{F#FFB700}%{F-}
-;animation-charging-9 = %{F#FFB700}%{F-}
-;animation-charging-0 = 
-;animation-charging-1 = 
-;animation-charging-2 = 
-;animation-charging-3 = 
-;animation-charging-4 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
+; ramp-capacity-6 = %{F#FFB700}%{F-}
+; ramp-capacity-7 = %{F#FFB700}%{F-}
+; ramp-capacity-8 = %{F#FFB700}%{F-}
+; ramp-capacity-9 = %{F#FFB700}%{F-}
+; ramp-capacity-10 = %{F#FFB700}%{F-}
+; ramp-capacity-foreground = ${colors.foreground-alt}
+; 
+; 
+; 
 
-;animation-discharging-0 = 
-;animation-discharging-1 = 
-;animation-discharging-2 = 
-;animation-discharging-foreground = ${colors.foreground-alt}
-;animation-discharging-framerate = 750
+; animation-discharging-0 = 
+; animation-discharging-1 = 
+; animation-discharging-2 = 
+; animation-discharging-foreground = ${colors.foreground-alt}
+; animation-discharging-framerate = 750
 
-; [module/temperature]
-; type = internal/temperature
-; thermal-zone = 0
-; warn-temperature = 60
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
 
-; format-prefix = " "
-; format-warn-prefix = " "
-; format-prefix-foreground = ${colors.red}
-; format-warn-prefix-foreground = ${colors.red}
-; format =  <label>
-; format-padding = 1
-; format-warn = <label-warn>
+format-prefix = " "
+format-warn-prefix = " "
+format-prefix-foreground = ${colors.red}
+format-warn-prefix-foreground = ${colors.red}
+format =  <label>
+format-padding = 0
+format-warn = <label-warn>
 
-; label = %temperature-c%
-; label-warn = %temperature-c%
-; label-warn-foreground = ${colors.red}
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.red}
 
-; ramp-0 = 
-; ramp-1 = 
-; ramp-2 = 
-; ramp-foreground = ${colors.foreground-alt}
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
 
 ; [module/wifi]
 ; type = internal/network
@@ -437,25 +457,6 @@ animation-charging-framerate = 750
 ; label-disconnected = 
 ; label-disconnected-foreground = ${colors.red}
 
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
-
 [module/powermenu]
 type = custom/menu
 
@@ -463,10 +464,10 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
-label-open-foreground = ${colors.secondary}
+label-open = 
+label-open-foreground = ${colors.orange}
 label-close =  cancel
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.red}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
@@ -487,11 +488,15 @@ menu-2-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
+; compositing-background = xor
+compositing-background = screen
+compositing-foreground = source
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+; Enables pseudo-transparency for the bar
+; If set to true the bar can be transparent without a compositor.
+pseudo-transparency = false
 
 [global/wm]
 margin-top = 5
