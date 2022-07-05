@@ -70,7 +70,7 @@ font-4 = siji:pixelsize=10;1
 
 modules-left = bspwm
 modules-center = date xwindow
-modules-right = cpu memory temperature pulseaudio battery apps wlan eth powermenu
+modules-right = cpu memory temperature pulseaudio battery apps wlan eth
 
 tray-position = right
 tray-padding = 0
