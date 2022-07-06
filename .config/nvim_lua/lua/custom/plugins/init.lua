@@ -1,4 +1,4 @@
-{
+return {
   ["goolord/alpha-nvim"] = {
     disable = false
   },
@@ -46,7 +46,9 @@
    },
 
    ["tpope/vim-surround"] = {},
+
    ["justinmk/vim-sneak"] = {},
+
    ["phaazon/hop.nvim"] = {
     branch = "v1",
     config = function()
