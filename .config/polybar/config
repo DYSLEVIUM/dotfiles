@@ -1,4 +1,4 @@
-==========
+;==========================================================
 ;
 ;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
@@ -220,14 +220,15 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "CPU:"
+format-prefix = " "
+click-left = kitty -e htop &
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "RAM: "
+format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage_used%%
 
@@ -295,10 +296,10 @@ label = %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+label-volume = 墳 %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+label-muted = 婢
 label-muted-foreground = #666
 
 bar-volume-width = 10
@@ -356,7 +357,7 @@ adapter = ADP1
 full-at = 99
 low-at = 15
 format-charging = <animation-charging> <label-charging>
-format-charging-padding = 1
+format-charging-padding = 0
 label-charging = %percentage%%
 
 ; poll-interval = 5
@@ -373,43 +374,36 @@ animation-charging-font = 2
 animation-charging-framerate = 750
 
 ;animation-charging-0 = %{F#FFB700}%{F-}
-; animation-charging-0 = %{F#FFB700}%{F-}
-; animation-charging-1 = %{F#FFB700}%{F-}
-; animation-charging-2 = %{F#FFB700}%{F-}
-; animation-charging-3 = %{F#FFB700}%{F-}
-; animation-charging-4 = %{F#FFB700}%{F-}
+animation-charging-0 = %{F#FFB700}%{F-}
+animation-charging-1 = %{F#FFB700}%{F-}
+animation-charging-2 = %{F#FFB700}%{F-}
+animation-charging-3 = %{F#FFB700}%{F-}
+animation-charging-4 = %{F#FFB700}%{F-}
 ; animation-charging-5 = %{F#FFB700}%{F-}
 ; animation-charging-6 = %{F#FFB700}%{F-}
 ; animation-charging-7 = %{F#FFB700}%{F-}
 ; animation-charging-8 = %{F#FFB700}%{F-}
 ; animation-charging-9 = %{F#FFB700}%{F-}
-; animation-charging-0 = 
-; animation-charging-1 = 
-; animation-charging-2 = 
-; animation-charging-3 = 
-; animation-charging-4 = 
 ; animation-charging-foreground = ${colors.foreground-alt}
-; animation-charging-framerate = 750
 
 ; format-discharging = %{B#d4d0a7}bat: <animation-discharging> <label-discharging> %{B- }
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-padding = 1
+format-discharging-padding = 0
 
-format-full-prefix = 
-format-full-prefix-foreground = ${colors.yellow}
+format-prefix-foreground = ${colors.red}
 format-full-padding = 1
 
 ramp-capacity-font = 2
-ramp-capacity-0 = %{F#D40000}%{F-}
-ramp-capacity-1 = %{F#FFB700}%{F-}
-ramp-capacity-2 = %{F#FFB700}%{F-}
-ramp-capacity-3 = %{F#FFB700}%{F-}
-ramp-capacity-4 = %{F#FFB700}%{F-}
-; ramp-capacity-6 = %{F#FFB700}%{F-}
-; ramp-capacity-7 = %{F#FFB700}%{F-}
-; ramp-capacity-8 = %{F#FFB700}%{F-}
-; ramp-capacity-9 = %{F#FFB700}%{F-}
-; ramp-capacity-10 = %{F#FFB700}%{F-}
+ramp-capacity-0 = %{F#D40000}%{F-}
+ramp-capacity-1 = %{F#FFB700}%{F-}
+ramp-capacity-2 = %{F#FFB700}%{F-}
+ramp-capacity-3 = %{F#FFB700}%{F-}
+ramp-capacity-4 = %{F#FFB700}%{F-}
+ramp-capacity-6 = %{F#FFB700}%{F-}
+ramp-capacity-7 = %{F#FFB700}%{F-}
+ramp-capacity-8 = %{F#FFB700}%{F-}
+ramp-capacity-9 = %{F#FFB700}%{F-}
+ramp-capacity-10 = %{F#FFB700}%{F-}
 ; ramp-capacity-foreground = ${colors.foreground-alt}
 ; 
 ; 
