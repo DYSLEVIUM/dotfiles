@@ -1,4 +1,4 @@
-}
+local M = {}
 
 M.resize = {
   n = {
@@ -27,8 +27,8 @@ M.qualityOfLife = {
 
 M.hop = {
   n = {
-    ["<leader>f"] = { "<cmd> HopWord<cr>", "" },
-    ["<leader>fp"] = { "<cmd> HopPattern<cr>", "" },
+    ["<leader>f"] = { "<cmd> HopWord<cr>", "jump to word" },
+    ["<leader>fp"] = { "<cmd> HopPattern<cr>", "jump to pattern" },
   }
 }
 
