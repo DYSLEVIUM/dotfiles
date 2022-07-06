@@ -1,4 +1,4 @@
-local M = {}
+}
 
 M.resize = {
   n = {
@@ -22,6 +22,13 @@ M.qualityOfLife = {
     ["p"] = { '"_dP', "hold the value while pasting continuously"},
     ["<"] = { "<gv", "stay in indent mode (indent left)" },
     [">"] = { ">gv", "stay in indent mode (indent right)" },
+  }
+}
+
+M.hop = {
+  n = {
+    ["<leader>f"] = { "<cmd> HopWord<cr>", "" },
+    ["<leader>fp"] = { "<cmd> HopPattern<cr>", "" },
   }
 }
 
