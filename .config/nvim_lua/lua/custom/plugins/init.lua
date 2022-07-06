@@ -44,4 +44,13 @@ return {
          end
       end,
    },
+
+   ["tpope/vim-surround"] = {},
+  
+   ["phaazon/hop.nvim"] = {
+    branch = "v1",
+    config = function()
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+   },
 }
