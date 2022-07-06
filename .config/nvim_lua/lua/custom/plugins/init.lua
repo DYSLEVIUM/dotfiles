@@ -1,4 +1,4 @@
-return {
+{
   ["goolord/alpha-nvim"] = {
     disable = false
   },
@@ -46,11 +46,13 @@ return {
    },
 
    ["tpope/vim-surround"] = {},
-  
+   ["justinmk/vim-sneak"] = {},
    ["phaazon/hop.nvim"] = {
     branch = "v1",
     config = function()
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+      require'hop'.setup {
+        keys = 'etovxqpdygfblzhckisuran',
+      }
     end
    },
 }
