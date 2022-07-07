@@ -33,7 +33,8 @@ M.plugins = {
   override = {
     ["kyazdani42/nvim-tree.lua"] = override.nvimtree,
     ["nvim-treesitter/nvim-treesitter"] = override.treesitter,
-    ["L3MON4D3/LuaSnip"] = override.luasnip
+    ["L3MON4D3/LuaSnip"] = override.luasnip,
+    ["hrsh7th/nvim-cmp"] = override.cmp
   },
   user = require "custom.plugins"
 }
