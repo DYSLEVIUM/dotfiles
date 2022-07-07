@@ -20,7 +20,7 @@ local override = require "custom.override"
 
 M.options = {
    user = function()
-      vim.opt.number = false
+    require("custom.options")
    end,
 }
 
