@@ -46,5 +46,6 @@ else
 end
 
 # Bun
-set -Ux BUN_INSTALL "/home/dyslevium/.bun"
-set -px --path PATH "/home/dyslevium/.bun/bin"
+set -Ux BUN_INSTALL "~/.bun"
+set -px --path PATH "~/.bun/bin"
+
