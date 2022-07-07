@@ -48,7 +48,7 @@ opt.mouse = "a"
 
 -- Numbers
 opt.number = true
-opt.numberwidth = 4
+opt.numberwidth = 1
 opt.ruler = true
 opt.relativenumber = true
 
