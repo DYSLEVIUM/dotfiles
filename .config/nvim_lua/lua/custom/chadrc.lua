@@ -1,4 +1,4 @@
-to be placed in /lua/custom/
+-- Just an example, supposed to be placed in /lua/custom/
 
 local M = {}
 
@@ -13,12 +13,15 @@ M.ui = {
     separator_style = "default",
   },
   transparency = true,
+  hl_add = require "custom.highlights",
 }
 
 local override = require "custom.override"
 
 M.options = {
-
+   user = function()
+      vim.opt.number = false
+   end,
 }
 
 M.plugins = {
