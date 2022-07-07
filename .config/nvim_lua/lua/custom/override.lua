@@ -60,11 +60,28 @@ M.nvimtree = {
 M.luasnip = function()
   local present, luasnip = pcall(require, "luasnip")
 
-   if not present then
-      return
-   end
+  if not present then
+    return
+  end
 
     require("luasnip.loaders.from_vscode").lazy_load({ paths = "./lua/custom/snippets" })
+end
+
+M.cmp = function()
+  local present, cmp = pcall(require, "cmp")
+
+  if not present then
+    return
+  end
+
+  return {
+    mapping = {
+      ["<CR>"] = cmp.mapping.confirm {
+         behavior = cmp.ConfirmBehavior.Insert,
+         select = true,
+      },
+    }
+  }
 end
 
 return M
