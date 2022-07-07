@@ -18,9 +18,9 @@ alias ls='exa'
 alias ll='exa -la'
 alias tree='exa --tree'
 alias cat='bat -p'
-alias cc='clear'
 alias grep='grep --color=auto'
 alias docker='sudo docker'
+alias cc='clear'
 alias n='nvim'
 
 function wrap_fzf_file
@@ -44,3 +44,7 @@ else
     command sudo $argv
     end
 end
+
+# Bun
+set -Ux BUN_INSTALL "/home/dyslevium/.bun"
+set -px --path PATH "/home/dyslevium/.bun/bin"
