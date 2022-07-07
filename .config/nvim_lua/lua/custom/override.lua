@@ -43,18 +43,28 @@ M.treesitter = {
 }
 
 M.nvimtree = {
-   git = {
-      enable = true,
-   },
+  sort_by = "name",
+  view = {
+    hide_root_folder = false,
+  },
+  git = {
+    enable = true,
+    ignore = false,
+  },
+  renderer = {
+    highlight_git = true,
+    highlight_opened_files = "all",
 
-   renderer = {
-      highlight_git = true,
-      icons = {
-         show = {
-            git = true,
-         },
+    indent_markers = {
+      enable = true,
+    },
+
+    icons = {
+      show = {
+        git = true,
       },
-   },
+    },
+  },
 }
 
 M.luasnip = function()
