@@ -219,6 +219,7 @@ done
 pgrep -x picom > /dev/null || picom --experimental-backends -f &
 pgrep -x feh > /dev/null || feh --bg-fill --randomize ~/wallpapers/static/* &
 pgrep -x polybar > /dev/null || polybar mybar &
+pgrep -x redshift > /dev/null || redshift -t 6500:3000 -l 20.593683:78.962883 &
 
 # faster key register
 xset r rate 200 30
