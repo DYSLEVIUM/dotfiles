@@ -218,6 +218,14 @@ pgrep -x polybar > /dev/null || polybar mybar &
 # faster key register
 xset r rate 200 30
 
+# scratchpad
+hc keybind $Super-Control-1		spawn ~/.config/herbstluftwm/scripts/scratchpad.sh "hlwmScratch1" "kitty --name hlwmScratch1"
+hc keybind $Super-Control-2		spawn ~/.config/herbstluftwm/scripts/scratchpad.sh "hlwmScratch2" "kitty --name hlwmScratch2"
+hc keybind $Super-Control-3		spawn ~/.config/herbstluftwm/scripts/scratchpad.sh "hlwmScratch3" "kitty --name hlwmScratch3"
+
+# put this somewhere after 'hc unrule -F' line
+hc rule instance~hlwmScratch.* floating=on floatplacement=center # float all instances which contains 'hlwmScratch'
+
 # bindings
 hc keybind $Super-b spawn firefox
 hc keybind $Super-x spawn betterlockscreen -l dimblur
