@@ -1,4 +1,3 @@
-#
 # wm independent hotkeys
 #
 
@@ -8,7 +7,7 @@ super + Return
 
 # program launcher
 alt + @space
-	rofi -show run
+	~/.config/rofi/launchers/colorful/launcher.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -20,7 +19,7 @@ super + b
 
 # tdrop scratchpad
 super + ctrl + Return
-  tdrop -am -w 60% -h 50% -y 25% -x 20% kitty
+  tdrop -am -w 60% -h 52% -y 24% -x 20% kitty
 
 #
 # bspwm hotkeys
@@ -131,3 +130,13 @@ super + {Left,Down,Up,Right}
 # betterlockscreen
 super + x
   betterlockscreen -l dimblur
+
+# audio
+XF86AudioRaiseVolume
+  pactl set-sink-volume @DEFAULT_SINK@ +5%
+XF86AudioLowerVolume
+  pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+# brightness
+XF86MonBrightness{Up,Down}
+  brightnessctl set 1000{+,-}
