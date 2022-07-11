@@ -15,10 +15,10 @@
 tag="${1:-scratchpad}"
 hc() { "${herbstclient_command[@]:-herbstclient}" "$@" ;}
 
-termwidth_percent=${WIDTH_PERC:-65}
+termwidth_percent=${WIDTH_PERC:-90}
 mrect=( $(hc monitor_rect -p "" ) )
 termwidth=$(( (${mrect[2]} * termwidth_percent) / 100 ))
-termheight=${HEIGHT_PIXELS:-550}
+termheight=${HEIGHT_PIXELS:-700}
 
 rect=(
     $termwidth
