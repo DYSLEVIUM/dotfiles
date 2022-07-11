@@ -123,7 +123,7 @@ hc attr theme.floating.reset 1
 hc set frame_border_active_color '#222222'
 hc set frame_border_normal_color '#000000'
 hc set frame_bg_normal_color '#565656'
-hc set frame_bg_active_color '#a8998455'
+hc set frame_bg_active_color '#a89984'
 hc set frame_border_width 2
 hc set always_show_frame 1
 hc set frame_bg_transparent 1
@@ -171,6 +171,9 @@ hc set smart_window_surroundings off
 hc set smart_frame_surroundings off
 hc set mouse_recenter_gap 0
 hc set focus_follows_mouse off
+hc set update_dragged_clients on
+
+hc set default_frame_layout vertical
 
 # Media
 hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -227,6 +230,9 @@ xset r rate 200 30
 hc keybind $Super-Control-1	spawn ~/.config/herbstluftwm/scripts/scratchpad.sh "hlwmScratch1" "alacritty --class hlwmScratch1"
 hc keybind $Super-Control-2	spawn ~/.config/herbstluftwm/scripts/scratchpad.sh "hlwmScratch2" "alacritty --class hlwmScratch2"
 hc keybind $Super-Control-3	spawn ~/.config/herbstluftwm/scripts/scratchpad.sh "hlwmScratch3" "alacritty --class hlwmScratch3"
+
+# monocle mode
+hc keybind $Super-m spawn ~/.config/herbstluftwm/scripts/maximize.sh
 
 # floating rules
 ## put this somewhere after 'hc unrule -F' line
