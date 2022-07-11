@@ -230,10 +230,10 @@ hc keybind $Super-Control-3	spawn ~/.config/herbstluftwm/scripts/scratchpad.sh "
 
 # floating rules
 ## put this somewhere after 'hc unrule -F' line
-hc rule instance~hlwmScratch.* floating=on floatplacement=center # float all instances which contains 'hlwmScratch'
-hc rule instance~mpv.* floating=on floatplacement=center
-hc rule instance~dolphin.* floating=on floatplacement=center
-hc rule instance~spectacle.* floating=on floatplacement=center
+hc rule instance~hlwmScratch.* floating=on floatplacement=center # float all instances which matches regex 'hlwmScratch'
+hc rule instance~gl.* floating=on floatplacement=center # mpv
+hc rule instance~dolphin.* floating=on floatplacement=center # dolphin
+hc rule instance~spectacle.* floating=on floatplacement=center # spectacle
 
 hc keybind $Super-Control-Return	spawn ~/.config/herbstluftwm/scripts/q3terminal.sh 
 
