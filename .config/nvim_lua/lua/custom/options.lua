@@ -55,7 +55,8 @@ opt.relativenumber = true
 -- disable nvim intro
 opt.shortmess:append "sI"
 
-opt.signcolumn = "yes"
+-- sign column width is a mulptile of 2
+opt.signcolumn = "yes:1"
 opt.splitbelow = true
 opt.splitright = true
 opt.termguicolors = true
@@ -70,4 +71,3 @@ opt.updatetime = 250
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append "<>[]hl"
-
