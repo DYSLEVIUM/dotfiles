@@ -2,14 +2,14 @@
 add_newline = false
 
 [line_break]
-disabled = false
+disabled = true
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                            # The name of the module we are configuring is "character"
-success_symbol = "[➜](bold blue)"     # The "success_symbol" segment is being set to "➜" with the color "bold blue"
-vimcmd_symbol = "[➜](bold purple)"
+success_symbol = "[ ➜](bold blue)"     # The "success_symbol" segment is being set to "➜" with the color "bold blue"
+vimcmd_symbol = "[ ➜](bold purple)"
 vimcmd_visual_symbol = "[➜](bold purple)"
-error_symbol = "[](bold red)"
+error_symbol = "[ ](bold red)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
