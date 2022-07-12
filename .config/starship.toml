@@ -2,12 +2,14 @@
 add_newline = false
 
 [line_break]
-disabled = true
+disabled = false
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                            # The name of the module we are configuring is "character"
-success_symbol = "[ ❯](bold blue)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
-error_symbol = "[ ✗](bold red) "
+success_symbol = "[➜](bold blue)"     # The "success_symbol" segment is being set to "➜" with the color "bold blue"
+vimcmd_symbol = "[➜](bold purple)"
+vimcmd_visual_symbol = "[➜](bold purple)"
+error_symbol = "[](bold red)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
@@ -29,7 +31,7 @@ show_always = true
 format = "[$user]($style) @ "
 
 [status]
-disabled = false
+disabled = true
 
 [hostname]
 disabled = false
@@ -57,7 +59,7 @@ format = "via [🤖 $version](bold green) "
 format = "via [🐋 $context](blue bold)"
 
 [git_branch]
-symbol = " "
+symbol = " "
 truncation_length = 4
 truncation_symbol = ""
 
@@ -74,7 +76,7 @@ conflicted = "⚔️ "
 ahead = "🏎️ 💨 ×${count}"
 behind = "🐢 ×${count}"
 diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
-up_to_date = "✓"
+up_to_date = " "
 untracked = "🛤️  ×${count}"
 stashed = "📦 "
 modified = "📝 ×${count}"
