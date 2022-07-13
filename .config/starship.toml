@@ -19,7 +19,7 @@ disabled = false
 truncation_length = 3
 disabled = false
 truncate_to_repo = true
-format = "[$path]($style)[$read_only]($read_only_style)"
+format = "[$path]($style)[$read_only]($read_only_style) "
 
 [time]
 disabled = true
@@ -40,7 +40,7 @@ format = "[$hostname]($style) in "
 
 [cmd_duration]
 min_time = 1
-format = " took [$duration]($style)"
+format = "took [$duration]($style)"
 disabled = false
 
 [battery]
