@@ -44,6 +44,7 @@ format = " took [$duration]($style)"
 disabled = false
 
 [battery]
+disabled = true
 full_symbol = "🔋"
 charging_symbol = "🔌"
 discharging_symbol = "⚡"
