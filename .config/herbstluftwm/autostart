@@ -245,5 +245,6 @@ hc keybind $Super-Control-Return	spawn ~/.config/herbstluftwm/scripts/q3terminal
 
 # bindings
 hc keybind $Super-b spawn firefox
+hc keybind $Super-e spawn dolphin
 hc keybind $Super-x spawn betterlockscreen -l dimblur
 hc keybind $Alt-space spawn ~/.config/rofi/launchers/colorful/launcher.sh
