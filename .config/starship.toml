@@ -34,14 +34,14 @@ format = "[$user]($style) @ "
 disabled = true
 
 [hostname]
-disabled = false
+disabled = true
 ssh_only = true
 format = "[$hostname]($style) in "
 
 [cmd_duration]
 min_time = 1
 format = "took [$duration]($style)"
-disabled = false
+disabled = true
 
 [battery]
 disabled = true
