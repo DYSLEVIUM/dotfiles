@@ -99,7 +99,7 @@ hc keybind $Super-p pseudotile toggle
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
 # I.e. if there are two windows within a frame, the grid layout is skipped.
-hc keybind $Super-space                                                           \
+hc keybind $Mod-space                                                           \
             or , and . compare tags.focus.curframe_wcount = 2                   \
                      . cycle_layout +1 vertical horizontal max vertical grid    \
                , cycle_layout +1
@@ -124,13 +124,12 @@ hc set frame_border_active_color '#222222'
 hc set frame_border_normal_color '#222222'
 hc set frame_bg_normal_color '#565656'
 hc set frame_bg_active_color '#A8998430'
-hc set frame_border_width 1
-hc set always_show_frame 1
+hc set frame_border_width 0
 hc set frame_bg_transparent 1
 hc set frame_transparent_width 4
-hc set frame_gap 8
+hc set frame_gap 4
 hc set frame_active_opactiy 1
-hc set frame_normal_opacity 0
+hc set frame_normal_opacity 1
 
 # hc attr theme.title_height 15
 # hc attr theme.title_when always  # always, never
@@ -147,9 +146,9 @@ hc attr theme.urgent.color '#7811A1DD'
 # hc attr theme.active.tab_outer_color '#6C8257dd'
 # hc attr theme.active.tab_title_color '#ababab'
 # hc attr theme.normal.title_color '#898989'
-hc attr theme.inner_width 0
-hc attr theme.inner_color white
-hc attr theme.border_width 4
+hc attr theme.inner_width 2
+hc attr theme.inner_color '#D65D0E'
+hc attr theme.border_width 2
 hc attr theme.floating.border_width 0
 hc attr theme.floating.outer_width 0
 hc attr theme.floating.outer_color black
@@ -166,15 +165,18 @@ hc attr theme.normal.inner_color '#928374'
 # hc attr theme.tiling.outer_width 1
 hc attr theme.background_color '#141414'
 
-hc set window_gap 8
-hc set frame_padding 8
+hc set window_gap 4
+hc set frame_padding 4
 hc set smart_window_surroundings off
 hc set smart_frame_surroundings off
 hc set mouse_recenter_gap 0
+hc set raise_on_click 1
+hc set raise_on_focus 0
+hc set raise_on_focus_temporarily 0
 hc set focus_follows_mouse off
 hc set update_dragged_clients on
 
-# hc set default_frame_layout vertical
+hc set default_frame_layout 3
 
 # Media
 hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
