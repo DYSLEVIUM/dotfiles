@@ -223,7 +223,7 @@ done
 
 # custom
 autostart
-# pgrep -x picom > /dev/null || picom --experimental-backends -f &
+pgrep -x picom >/dev/null || picom --experimental-backends -f &
 pgrep -x feh >/dev/null || feh --bg-fill --randomize ~/wallpapers/static/* &
 pgrep -x polybar >/dev/null || polybar mybar &
 
