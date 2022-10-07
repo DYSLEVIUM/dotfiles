@@ -3,7 +3,7 @@
 # this is a simple config for herbstluftwm
 
 hc() {
-  herbstclient "$@"
+	herbstclient "$@"
 }
 
 hc emit_hook reload
@@ -16,7 +16,7 @@ hc keyunbind --all
 # keybindings
 # if you have a super key you will be much happier with Mod set to Mod4
 # Mod=Mod1    # Use alt as the main modifier
-Super=Mod4   # Use the super key as the main modifier
+Super=Mod4 # Use the super key as the main modifier
 Terminal=kitty
 Alt=Mod1
 
@@ -26,64 +26,64 @@ hc keybind $Super-$Alt-q quit
 hc keybind $Super-$Alt-r reload
 # hc keybind $Super-Shift-c close
 hc keybind $Super-w close
-hc keybind $Super-Return spawn "${Terminal:-konsole}" # use your $TERMINAL with konsole as fallback
+hc keybind $Super-Return spawn "${Terminal:-xterm}" # use your $TERMINAL with konsole as fallback
 
 # basic movement in tiling and floating mode
 # focusing clients
-hc keybind $Super-Left  focus left
-hc keybind $Super-Down  focus down
-hc keybind $Super-Up    focus up
+hc keybind $Super-Left focus left
+hc keybind $Super-Down focus down
+hc keybind $Super-Up focus up
 hc keybind $Super-Right focus right
-hc keybind $Super-h     focus left
-hc keybind $Super-j     focus down
-hc keybind $Super-k     focus up
-hc keybind $Super-l     focus right
+hc keybind $Super-h focus left
+hc keybind $Super-j focus down
+hc keybind $Super-k focus up
+hc keybind $Super-l focus right
 
 # moving clients in tiling and floating mode
-hc keybind $Super-Shift-Left  shift left
-hc keybind $Super-Shift-Down  shift down
-hc keybind $Super-Shift-Up    shift up
+hc keybind $Super-Shift-Left shift left
+hc keybind $Super-Shift-Down shift down
+hc keybind $Super-Shift-Up shift up
 hc keybind $Super-Shift-Right shift right
-hc keybind $Super-Shift-h     shift left
-hc keybind $Super-Shift-j     shift down
-hc keybind $Super-Shift-k     shift up
-hc keybind $Super-Shift-l     shift right
+hc keybind $Super-Shift-h shift left
+hc keybind $Super-Shift-j shift down
+hc keybind $Super-Shift-k shift up
+hc keybind $Super-Shift-l shift right
 
 # splitting frames
 # create an empty frame at the specified direction
-hc keybind $Super-u       split   bottom  0.5
-hc keybind $Super-o       split   right   0.5
+hc keybind $Super-u split bottom 0.5
+hc keybind $Super-o split right 0.5
 # let the current frame explode into subframes
 hc keybind $Super-Control-space split explode
 
 # resizing frames and floating clients
 resizestep=0.01
-hc keybind $Super-Control-h       resize left +$resizestep
-hc keybind $Super-Control-j       resize down +$resizestep
-hc keybind $Super-Control-k       resize up +$resizestep
-hc keybind $Super-Control-l       resize right +$resizestep
-hc keybind $Super-Control-Left    resize left +$resizestep
-hc keybind $Super-Control-Down    resize down +$resizestep
-hc keybind $Super-Control-Up      resize up +$resizestep
-hc keybind $Super-Control-Right   resize right +$resizestep
+hc keybind $Super-Control-h resize left +$resizestep
+hc keybind $Super-Control-j resize down +$resizestep
+hc keybind $Super-Control-k resize up +$resizestep
+hc keybind $Super-Control-l resize right +$resizestep
+hc keybind $Super-Control-Left resize left +$resizestep
+hc keybind $Super-Control-Down resize down +$resizestep
+hc keybind $Super-Control-Up resize up +$resizestep
+hc keybind $Super-Control-Right resize right +$resizestep
 
 # tags
-tag_names=( {1..8} )
-tag_keys=( {1..8} 0 )
+tag_names=({1..8})
+tag_keys=({1..8} 0)
 
 hc rename default "${tag_names[0]}" || true
-for i in "${!tag_names[@]}" ; do
-    hc add "${tag_names[$i]}"
-    key="${tag_keys[$i]}"
-    if [ -n "$key" ] ; then
-        hc keybind "$Super-$key" use_index "$i"
-        hc keybind "$Super-Shift-$key" move_index "$i"
-    fi
+for i in "${!tag_names[@]}"; do
+	hc add "${tag_names[$i]}"
+	key="${tag_keys[$i]}"
+	if [ -n "$key" ]; then
+		hc keybind "$Super-$key" use_index "$i"
+		hc keybind "$Super-Shift-$key" move_index "$i"
+	fi
 done
 
 # cycle through tags
 hc keybind $Super-period use_index +1 --skip-visible
-hc keybind $Super-comma  use_index -1 --skip-visible
+hc keybind $Super-comma use_index -1 --skip-visible
 
 # layouting
 hc keybind $Super-r remove
@@ -99,10 +99,10 @@ hc keybind $Super-p pseudotile toggle
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
 # I.e. if there are two windows within a frame, the grid layout is skipped.
-hc keybind $Super-space                                                           \
-            or , and . compare tags.focus.curframe_wcount = 2                   \
-                     . cycle_layout +1 vertical horizontal max vertical grid    \
-               , cycle_layout +1
+hc keybind $Super-space \
+	or , and . compare tags.focus.curframe_wcount = 2 \
+	. cycle_layout +1 vertical horizontal max vertical grid \
+	, cycle_layout +1
 
 # mouse
 hc mouseunbind --all
@@ -111,9 +111,9 @@ hc mousebind $Super-Button2 zoom
 hc mousebind $Super-Button3 resize
 
 # focus
-hc keybind $Super-BackSpace   cycle_monitor
-hc keybind $Super-Tab         cycle_all +1
-hc keybind $Super-Shift-Tab   cycle_all -1
+hc keybind $Super-BackSpace cycle_monitor
+hc keybind $Super-Tab cycle_all +1
+hc keybind $Super-Shift-Tab cycle_all -1
 hc keybind $Super-c cycle
 hc keybind $Super-i jumpto urgent
 
@@ -161,9 +161,9 @@ hc attr theme.urgent.inner_color '#9A65B0'
 hc attr theme.normal.inner_color '#928374'
 
 # copy inner color to outer_color
-for state in active urgent normal ; do
-    hc substitute C theme.${state}.inner_color \
-        attr theme.${state}.outer_color C
+for state in active urgent normal; do
+	hc substitute C theme.${state}.inner_color \
+		attr theme.${state}.outer_color C
 done
 hc attr theme.tiling.outer_width 1
 hc attr theme.background_color '#A8998430'
@@ -183,7 +183,7 @@ hc set update_dragged_clients on
 hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
 hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -5%
 
-hc keybind XF86AudioPlay spawn mpc toggle #strawberry -t; sh $HOME/dotfiles/musictoggle.sh -u strawberry
+hc keybind XF86AudioPlay spawn mpc toggle  #strawberry -t; sh $HOME/dotfiles/musictoggle.sh -u strawberry
 hc keybind XF86AudioPause spawn mpc toggle #strawberry -t
 
 # brightness
@@ -216,46 +216,47 @@ hc unlock
 # find the panel
 panel=~/.config/herbstluftwm/panel.sh
 [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
-for monitor in $(hc list_monitors | cut -d: -f1) ; do
-  # start it on each monitor
-  "$panel" "$monitor" &
+for monitor in $(hc list_monitors | cut -d: -f1); do
+	# start it on each monitor
+	"$panel" "$monitor" &
 done
 
 # custom
-# autostart
-pgrep -x picom > /dev/null || picom --experimental-backends -f &
-pgrep -x feh > /dev/null || feh --bg-fill --randomize ~/wallpapers/static/* &
-pgrep -x polybar > /dev/null || polybar mybar &
+autostart
+# pgrep -x picom > /dev/null || picom --experimental-backends -f &
+pgrep -x feh >/dev/null || feh --bg-fill --randomize ~/wallpapers/static/* &
+pgrep -x polybar >/dev/null || polybar mybar &
 
 # faster key register
 xset r rate 200 30
 
 # scratchpad
-hc keybind $Super-Control-1	spawn ~/.config/herbstluftwm/scripts/scratchpad.sh "hlwmScratch1" "alacritty --class hlwmScratch1"
-hc keybind $Super-Control-2	spawn ~/.config/herbstluftwm/scripts/scratchpad.sh "hlwmScratch2" "alacritty --class hlwmScratch2"
-hc keybind $Super-Control-3	spawn ~/.config/herbstluftwm/scripts/scratchpad.sh "hlwmScratch3" "alacritty --class hlwmScratch3"
+hc keybind $Super-Control-1 spawn ~/.config/herbstluftwm/scripts/scratchpad.sh "hlwmScratch1" "kitty --name hlwmScratch1"
+hc keybind $Super-Control-2 spawn ~/.config/herbstluftwm/scripts/scratchpad.sh "hlwmScratch2" "kitty --name hlwmScratch2"
+hc keybind $Super-Control-3 spawn ~/.config/herbstluftwm/scripts/scratchpad.sh "hlwmScratch3" "kitty --name hlwmScratch3"
 
 # monocle mode
 hc keybind $Super-m spawn ~/.config/herbstluftwm/scripts/maximize.sh
 
 # floating rules
 ## put this somewhere after 'hc unrule -F' line
-hc rule instance~hlwmScratch.* floating=on floatplacement=center # float all instances which matches regex 'hlwmScratch'
-hc rule instance~gl.* floating=on floatplacement=center # mpv
-hc rule instance~dolphin.* floating=on floatplacement=center # dolphin
-hc rule instance~spectacle.* floating=on floatplacement=center # spectacle
-hc rule instance~discord.* floating=on floatplacement=center # discord
-hc rule instance~emacs.* floating=on floatplacement=center # emacs
-hc rule instance~telegram.* floating=on floatplacement=center # telegram
-hc rule instance~Blender.* floating=on floatplacement=center # blender
+hc rule instance~hlwmScratch.* floating=on floatplacement=center      # float all instances which matches regex 'hlwmScratch'
+hc rule instance~gl.* floating=on floatplacement=center               # mpv
+hc rule instance~dolphin.* floating=on floatplacement=center          # dolphin
+hc rule instance~spectacle.* floating=on floatplacement=center        # spectacle
+hc rule instance~discord.* floating=on floatplacement=center          # discord
+hc rule instance~emacs.* floating=on floatplacement=center            # emacs
+hc rule instance~telegram.* floating=on floatplacement=center         # telegram
+hc rule instance~Blender.* floating=on floatplacement=center          # blender
 hc rule instance~org.pwmt.zathura.* floating=on floatplacement=center # zathura
-hc rule instance~vlc.* floating=on floatplacement=center # vlc
+hc rule instance~vlc.* floating=on floatplacement=center              # vlc
 
-hc keybind $Super-Control-Return spawn ~/.config/herbstluftwm/scripts/q3terminal.sh 
+hc keybind $Super-Control-Return spawn ~/.config/herbstluftwm/scripts/q3terminal.sh
 
 # bindings
 hc keybind $Super-b spawn firefox
-hc keybind $Super-e spawn tdrop -am -w 60% -h 52% -y 24% -x 20% kitty -e ranger
+hc keybind $Super-e spawn tdrop -am -n --class=ranger -w 60% -h 52% -y 24% -x 20% kitty -e ranger
+hc keybind $Super-g spawn tdrop -am -n --class=htop -w 60% -h 52% -y 24% -x 20% kitty -e htop
 hc keybind $Super-x spawn betterlockscreen -l dimblur
 hc keybind $Alt-space spawn ~/.config/rofi/launchers/colorful/launcher.sh
 hc keybind $Alt-e spawn dolphin
