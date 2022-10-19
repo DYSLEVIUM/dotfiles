@@ -1,4 +1,3 @@
--- TODO adjlaswjdl
 return {
   ["goolord/alpha-nvim"] = {
     disable = false,
