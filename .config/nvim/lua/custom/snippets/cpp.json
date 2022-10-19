@@ -23,8 +23,7 @@
       "std::mt19937_64 RNG(std::chrono::high_resolution_clock::now().time_since_epoch().count());\t$LINE_COMMENT generator for shuffle and other generator which require random numbers",
       "$LINE_COMMENT modified custom hash to be used with templates from https://codeforces.com/blog/entry/62393",
       "template<typename T>",
-      "class custom_hash {",
-      " public:",
+      "struct custom_hash {",
       "\tstatic uint64_t splitmix64(uint64_t x) {",
       "\t\tx += 0x9e3779b97f4a7c15;",
       "\t\tx = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;",
@@ -55,6 +54,7 @@
       "#define S second",
       "#define fo(i, n) for (ll i = 0; i < (ll)n; ++i)",
       "#define Fo(i, k, n) for (ll i = k; k < (ll)n ? i < (ll)n : i > (ll)n; k < (ll)n ? ++i : --i)",
+      "#define tr(it, cont) for (auto it = cont.begin(); it != cont.end(); ++it)",
       "#define all(x) x.begin(), x.end()",
       "#define ps(x, y) std::fixed << std::setprecision(y) << x",
       "#define set_bits(x) __builtin_popcountll(x)",
@@ -70,7 +70,7 @@
       "template <typename T> inline T mod_div(const T& a, const T& b, const T& mod) { return mod_mul(a, mod_inverse(b, mod), mod); }\n",
       "$LINE_COMMENT operator overloading",
       "template<typename T> std::istream& operator>>(std::istream &is, std::vector<T> &v){ for (auto &it : v) is >> it; return is; }",
-      "template<typename T> std::ostream& operator<<(std::ostream &os, const std::vector<T> &v) { for (auto &it : v) os << it << ' '; return os; }\n",
+      "template<typename T> std::ostream& operator<<(std::ostream &os, const std::vector<T> &v) { for (const auto &it : v) os << it << ' '; return os; }\n",
       "template<typename T_1, typename T_2> std::istream& operator>>(std::istream &is, std::pair<T_1, T_2> &p){ is >> p.first >> p.second; return is; }",
       "template<typename T_1, typename T_2> std::ostream& operator<<(std::ostream &os, const std::pair<T_1, T_2> &p) { os << p.first << ' ' << p.second; return os; }\n",
       "$LINE_COMMENT debuging",
@@ -103,6 +103,7 @@
       "\t$0",
       "}"
     ],
-    "description": "Competitive programming template"
+    "description": "template",
+    "scope": "cpp"
   }
 }
