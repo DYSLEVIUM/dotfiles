@@ -1,16 +1,16 @@
 return {
-  ["goolord/alpha-nvim"] = {
+  [ "goolord/alpha-nvim" ] = {
     disable = false,
   },
 
-  ["neovim/nvim-lspconfig"] = {
+  [ "neovim/nvim-lspconfig" ] = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.plugins.lspconfig"
     end,
   },
 
-  ["williamboman/mason.nvim"] = {
+  [ "williamboman/mason.nvim" ] = {
     override_options = {
       ensure_installed = {
         "sqlls",
@@ -60,14 +60,14 @@ return {
     },
   },
 
-  ["jose-elias-alvarez/null-ls.nvim"] = {
+  [ "jose-elias-alvarez/null-ls.nvim" ] = {
     after = "nvim-lspconfig",
     config = function()
       require "custom.plugins.null-ls"
     end,
   },
 
-  ["windwp/nvim-ts-autotag"] = {
+  [ "windwp/nvim-ts-autotag" ] = {
     filetypes = {
       "html",
       "javascript",
@@ -102,7 +102,7 @@ return {
     end,
   },
 
-  ["folke/todo-comments.nvim"] = {
+  [ "folke/todo-comments.nvim" ] = {
     event = "BufRead",
     config = function()
       require("todo-comments").setup {
@@ -169,7 +169,7 @@ return {
     end,
   },
 
-  ["folke/trouble.nvim"] = {
+  [ "folke/trouble.nvim" ] = {
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require("trouble").setup {
@@ -222,15 +222,15 @@ return {
     end
   },
 
-  ["tpope/vim-surround"] = {},
+  [ "tpope/vim-surround" ] = {},
 
-  ["tpope/vim-repeat"] = {},
+  [ "tpope/vim-repeat" ] = {},
 
-  ["justinmk/vim-sneak"] = {},
+  [ "justinmk/vim-sneak" ] = {},
 
-  ["p00f/nvim-ts-rainbow"] = {},
+  [ "p00f/nvim-ts-rainbow" ] = {},
 
-  ["karb94/neoscroll.nvim"] = {
+  [ "karb94/neoscroll.nvim" ] = {
     event = "WinScrolled",
     config = function()
       require('neoscroll').setup({
@@ -249,8 +249,9 @@ return {
     end
   },
 
-  ["phaazon/hop.nvim"] = {
+  [ "phaazon/hop.nvim" ] = {
     branch = "v1",
+    event = "BufRead",
     config = function()
       require("hop").setup {
         keys = "etovxqpdygfblzhckisuran",
@@ -258,7 +259,7 @@ return {
     end,
   },
 
-  ["nvim-treesitter/nvim-treesitter"] = {
+  [ "nvim-treesitter/nvim-treesitter" ] = {
     override_options = {
       ensure_installed = {
         "bash",
@@ -297,10 +298,18 @@ return {
         "vue",
         "yaml",
       },
+      rainbow = {
+        enable = true,
+        -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+        extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+        max_file_lines = nil, -- Do not enable for files with more than n lines, int
+        -- colors = {}, -- table of hex strings
+        -- termcolors = {} -- table of colour name strings
+      },
     },
   },
 
-  ["kyazdani42/nvim-tree.lua"] = {
+  [ "kyazdani42/nvim-tree.lua" ] = {
     override_options = {
       sort_by = "name",
       view = {
@@ -327,7 +336,7 @@ return {
     },
   },
 
-  ["hrsh7th/nvim-cmp"] = {
+  [ "hrsh7th/nvim-cmp" ] = {
     override_options = function()
       local present, cmp = pcall(require, "cmp")
 
@@ -346,20 +355,8 @@ return {
     end,
   },
 
-  ["NvChad/ui"] = {
-    override_options = {
-      vim.diagnostic.config {
-        virtual_text = {
-          prefix = "",
-        },
-        signs = true,
-        underline = true,
-        update_in_insert = false,
-      },
-    },
-  },
 
-  ["folke/which-key.nvim"] = {
+  [ "folke/which-key.nvim" ] = {
     disable = false,
   },
 }
