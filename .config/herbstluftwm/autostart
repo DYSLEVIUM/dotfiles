@@ -127,8 +127,8 @@ hc set frame_bg_active_color '#A8998450'
 hc set frame_border_width 0
 hc set always_show_frame 1
 hc set frame_bg_transparent 1
-hc set frame_transparent_width 4
-hc set frame_gap 8
+hc set frame_transparent_width 2
+hc set frame_gap 4
 hc set frame_active_opactiy 1
 hc set frame_normal_opacity 1
 
@@ -240,23 +240,23 @@ hc keybind $Super-m spawn ~/.config/herbstluftwm/scripts/maximize.sh
 
 # floating rules
 ## put this somewhere after 'hc unrule -F' line
-hc rule instance~hlwmScratch.* floating=on floatplacement=center      # float all instances which matches regex 'hlwmScratch'
-hc rule instance~gl.* floating=on floatplacement=center               # mpv
-hc rule instance~dolphin.* floating=on floatplacement=center          # dolphin
-hc rule instance~spectacle.* floating=on floatplacement=center        # spectacle
-hc rule instance~discord.* floating=on floatplacement=center          # discord
-hc rule instance~emacs.* floating=on floatplacement=center            # emacs
-hc rule instance~telegram.* floating=on floatplacement=center         # telegram
-hc rule instance~Blender.* floating=on floatplacement=center          # blender
-hc rule instance~org.pwmt.zathura.* floating=on floatplacement=center # zathura
-hc rule instance~vlc.* floating=on floatplacement=center              # vlc
+hc rule instance~hlwmScratch.* floating=on floatplacement=center # float all instances which matches regex 'hlwmScratch'
+# hc rule instance~gl.* floating=on floatplacement=center               # mpv
+hc rule instance~dolphin.* floating=on floatplacement=center   # dolphin
+hc rule instance~spectacle.* floating=on floatplacement=center # spectacle
+hc rule instance~discord.* floating=on floatplacement=center   # discord
+hc rule instance~emacs.* floating=on floatplacement=center     # emacs
+hc rule instance~telegram.* floating=on floatplacement=center  # telegram
+# hc rule instance~Blender.* floating=on floatplacement=center          # blender
+# hc rule instance~org.pwmt.zathura.* floating=on floatplacement=center # zathura
+# hc rule instance~vlc.* floating=on floatplacement=center              # vlc
 
 hc keybind $Super-Control-Return spawn ~/.config/herbstluftwm/scripts/q3terminal.sh
 
 # bindings
 hc keybind $Super-b spawn firefox
 hc keybind $Super-e spawn tdrop -am -n --class=ranger -w 60% -h 52% -y 24% -x 20% kitty -e ranger
-hc keybind $Super-g spawn tdrop -am -n --class=htop -w 60% -h 52% -y 24% -x 20% kitty -e htop
+hc keybind $Super-g spawn tdrop -am -n --class=bpytop -w 60% -h 52% -y 24% -x 20% kitty -e bpytop
 hc keybind $Super-x spawn betterlockscreen -l dimblur
 hc keybind $Alt-space spawn ~/.config/rofi/launchers/colorful/launcher.sh
 hc keybind $Alt-e spawn dolphin
