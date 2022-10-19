@@ -29,7 +29,7 @@ local servers = {
 local init_options = {}
 for _, lsp in ipairs(servers) do
   if lsp == "clangd" then
-    capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+    capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
     capabilities.textDocument.semanticHighlighting = true
     capabilities.offsetEncoding = "utf-16"
 
