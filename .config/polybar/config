@@ -17,7 +17,9 @@
 ;==========================================================
 
 [colors]
-background = #4545453A
+; background = #4545453A
+; background = #454545
+background = #272727
 background-alt = #D65D0E
 foreground = #abb2bf
 foreground-alt = #abb2bf
@@ -45,7 +47,8 @@ white       = #EBDBB2
 
 width = 99%
 height = 28px
-radius = 0px
+; radius = 0px
+radius = 8px
 offset-x = 0.5%
 offset-y = 1%
 
@@ -296,7 +299,7 @@ interface-type = wired
 interval = 3.0
 
 format-connected-underline = #55aa55
-format-connected-prefix = " "
+; format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
