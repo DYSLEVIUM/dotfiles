@@ -240,16 +240,16 @@ hc keybind $Super-m spawn ~/.config/herbstluftwm/scripts/maximize.sh
 
 # floating rules
 ## put this somewhere after 'hc unrule -F' line
-hc rule instance~hlwmScratch.* floating=on floatplacement=center # float all instances which matches regex 'hlwmScratch'
-# hc rule instance~gl.* floating=on floatplacement=center               # mpv
-hc rule instance~dolphin.* floating=on floatplacement=center   # dolphin
-hc rule instance~spectacle.* floating=on floatplacement=center # spectacle
-hc rule instance~discord.* floating=on floatplacement=center   # discord
-hc rule instance~emacs.* floating=on floatplacement=center     # emacs
-hc rule instance~telegram.* floating=on floatplacement=center  # telegram
-# hc rule instance~Blender.* floating=on floatplacement=center          # blender
-# hc rule instance~org.pwmt.zathura.* floating=on floatplacement=center # zathura
-# hc rule instance~vlc.* floating=on floatplacement=center              # vlc
+hc rule instance~hlwmScratch.* floating=on floatplacement=center      # float all instances which matches regex 'hlwmScratch'
+hc rule instance~gl.* floating=on floatplacement=center               # mpv
+hc rule instance~dolphin.* floating=on floatplacement=center          # dolphin
+hc rule instance~spectacle.* floating=on floatplacement=center        # spectacle
+hc rule instance~discord.* floating=on floatplacement=center          # discord
+hc rule instance~emacs.* floating=on floatplacement=center            # emacs
+hc rule instance~telegram.* floating=on floatplacement=center         # telegram
+hc rule instance~Blender.* floating=on floatplacement=center          # blender
+hc rule instance~org.pwmt.zathura.* floating=on floatplacement=center # zathura
+hc rule instance~vlc.* floating=on floatplacement=center              # vlc
 
 hc keybind $Super-Control-Return spawn ~/.config/herbstluftwm/scripts/q3terminal.sh
 
