@@ -169,14 +169,14 @@ hc attr theme.tiling.outer_width 1
 hc attr theme.background_color '#A8998430'
 
 hc set window_gap 8
-hc set frame_padding 2
+hc set frame_padding 4
 hc set smart_window_surroundings off
 hc set smart_frame_surroundings off
 hc set mouse_recenter_gap 0
 hc set raise_on_click 1
-hc set raise_on_focus 0
+hc set raise_on_focus 1
 hc set raise_on_focus_temporarily 0
-hc set focus_follows_mouse off
+hc set focus_follows_mouse on
 hc set update_dragged_clients on
 
 # Media
