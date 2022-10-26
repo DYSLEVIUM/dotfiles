@@ -229,6 +229,8 @@ return {
 
 	["justinmk/vim-sneak"] = {},
 
+	["mg979/vim-visual-multi"] = {},
+
 	["p00f/nvim-ts-rainbow"] = {},
 
 	["karb94/neoscroll.nvim"] = {
