@@ -1,8 +1,8 @@
 # Inserts a blank line between shell prompts
-# add_newline = true
+add_newline = false
 
 [line_break]
-disabled = false
+disabled = true
 
 # Replace the "❯" symbol in the prompt with "➜"
 # [character]                            # The name of the module we are configuring is "character"
@@ -16,7 +16,7 @@ disabled = false
 disabled = false
 
 [directory]
-truncation_length = 3
+truncation_length = 5
 disabled = false
 truncate_to_repo = true
 format = "[$path]($style)[$read_only]($read_only_style) "
@@ -26,7 +26,7 @@ disabled = true
 format = "[$time]($style) "
 
 [username]
-disabled = true
+disabled = false
 show_always = true
 format = "[$user]($style) @ "
 
@@ -40,8 +40,8 @@ format = "[$hostname]($style) in "
 
 [cmd_duration]
 min_time = 1
-format = "took [$duration]($style)"
-disabled = true
+format = "took [$duration]($style) "
+disabled = false
 
 [battery]
 disabled = true
