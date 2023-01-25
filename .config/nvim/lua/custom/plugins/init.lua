@@ -228,8 +228,9 @@ return {
 	["tpope/vim-repeat"] = {},
 
 	["justinmk/vim-sneak"] = {},
-
-	["mg979/vim-visual-multi"] = {},
+	
+	-- this is using the same bindings as nvim-tree
+	-- ["mg979/vim-visual-multi"] = {},
 
 	["p00f/nvim-ts-rainbow"] = {},
 
