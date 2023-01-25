@@ -16,6 +16,7 @@ M.qualityOfLife = {
 
   i = {
     ["jk"] = { "<esc>", "faster exit to normal mode" },
+    ["kj"] = { "<esc>", "faster exit to normal mode" },
   },
 
   v = {
