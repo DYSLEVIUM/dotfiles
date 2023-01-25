@@ -25,8 +25,8 @@ M.qualityOfLife = {
 		["p"] = { '"_dP', "hold the value while pasting continuously" },
 		["<"] = { "<gv", "stay in indent mode (indent left)" },
 		[">"] = { ">gv", "stay in indent mode (indent right)" },
-		["<S-k>"] = { ":m '<-2<CR>gv=gv", "move line up" },
-		["<S-j>"] = { ":m '>+1<CR>gv=gv", "move line down" },
+		["<A-k>"] = { ":m '<-2<CR>gv=gv", "move line up" },
+		["<A-j>"] = { ":m '>+1<CR>gv=gv", "move line down" },
 	},
 }
 
