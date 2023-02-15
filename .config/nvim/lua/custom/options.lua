@@ -39,7 +39,7 @@ opt.expandtab = true
 opt.shiftwidth = 4
 opt.smartindent = true
 opt.smarttab = true
-opt.tabstop = 2
+opt.tabstop = 4
 
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
