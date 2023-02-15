@@ -36,7 +36,7 @@ opt.sidescrolloff = 8
 -- Indenting
 opt.autoindent = true
 opt.expandtab = true
-opt.shiftwidth = 2
+opt.shiftwidth = 4
 opt.smartindent = true
 opt.smarttab = true
 opt.tabstop = 2
