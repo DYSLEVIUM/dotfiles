@@ -1,5 +1,5 @@
 # Inserts a blank line between shell prompts
-add_newline = false
+add_newline = true
 
 [line_break]
 disabled = true
@@ -26,7 +26,7 @@ disabled = true
 format = "[$time]($style) "
 
 [username]
-disabled = false
+disabled = true
 show_always = true
 format = "[$user]($style) @ "
 
@@ -41,7 +41,7 @@ format = "[$hostname]($style) in "
 [cmd_duration]
 min_time = 1
 format = "took [$duration]($style) "
-disabled = false
+disabled = true
 
 [battery]
 disabled = true
