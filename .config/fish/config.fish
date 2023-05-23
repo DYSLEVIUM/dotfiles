@@ -32,7 +32,7 @@ end
 function fish_user_key_bindings
   bind \cr fzf_history
   bind \co wrap_fzf_file
-    bind -M insert jk "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
+  bind -M insert jk "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
 end
 
 starship init fish | source
