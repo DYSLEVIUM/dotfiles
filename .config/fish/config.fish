@@ -16,10 +16,10 @@ set -x PF_COL3 2
 set -x BAT_THEME gruvbox-dark
 
 # aliases
-alias ls='/opt/homebrew/bin/exa'
-alias ll='/opt/homebrew/bin/exa -la'
-alias tree='/opt/homebrew/bin/exa --tree'
-alias cat='/opt/homebrew/bin/bat'
+alias ls='exa'
+alias ll='exa -la'
+alias tree='exa --tree'
+alias cat='bat'
 alias grep='grep --color=auto'
 alias docker='docker'
 alias cc='clear'
@@ -47,14 +47,3 @@ else
     command sudo $argv
     end
 end
-
-# Bun
-# set -Ux BUN_INSTALL "~/.bun"
-# set -px --path PATH "~/.bun/bin"
-
-set -x HOMEBREW_NO_INSTALL_CLEANUP TRUE
-
-# pnpm
-set -gx PNPM_HOME "/Users/pushpakantbehera/Library/pnpm"
-set -gx PATH "$PNPM_HOME" $PATH
-# pnpm end
