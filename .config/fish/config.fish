@@ -19,7 +19,7 @@ set -x BAT_THEME gruvbox-dark
 alias ls='exa'
 alias ll='exa -la'
 alias tree='exa --tree'
-alias cat='bat'
+alias cat='bat -p'
 alias grep='grep --color=auto'
 alias docker='docker'
 alias cc='clear'
