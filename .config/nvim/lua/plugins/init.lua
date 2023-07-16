@@ -3,6 +3,10 @@ local Utils = require("core.utils")
 local default_plugins = {
     { "nvim-lua/plenary.nvim" },
     {
+        "mg979/vim-visual-multi",
+        event = "VeryLazy",
+    },
+    {
         "ellisonleao/gruvbox.nvim",
         lazy = false,
         priority = 1000,
