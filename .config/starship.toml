@@ -1,19 +1,28 @@
 # Inserts a blank line between shell prompts
 add_newline = true
+command_timeout = 1000
 
 [line_break]
 disabled = true
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                            # The name of the module we are configuring is "character"
-success_symbol = "[❯](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold blue"
-vimcmd_symbol = "[❮](bold purple)"
-vimcmd_visual_symbol = "[❮](bold blue)"
+# success_symbol = "[➜](bold blue)"     # The "success_symbol" segment is being set to "➜" with the color "bold blue"
+# vimcmd_symbol = "[➜](bold purple)"
+# vimcmd_visual_symbol = "[➜](bold purple)"
 error_symbol = "[](bold red)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
+disabled = true
+
+[os]
 disabled = false
+style = "bold blue"
+
+[os.symbols]
+Windows = " "
+Macos = " "
 
 [directory]
 truncation_length = 5
@@ -23,7 +32,7 @@ format = "[$path]($style)[$read_only]($read_only_style) "
 
 [time]
 disabled = true
-format = "[$time]($style) "
+format = "[$time]($style)"
 
 [username]
 disabled = true
@@ -39,9 +48,9 @@ ssh_only = true
 format = "[$hostname]($style) in "
 
 [cmd_duration]
-min_time = 1
-format = "took [$duration]($style) "
 disabled = true
+min_time = 60_0000
+format = "took [$duration]($style) "
 
 [battery]
 disabled = true
@@ -54,32 +63,57 @@ threshold = 30
 style = "bold red"
 
 [nodejs]
-format = "via [🤖 $version](bold green) "
+format = "via [🤖 $version](bold green)"
 
 [docker_context]
 format = "via [🐋 $context](blue bold)"
 
+[kubernetes]
+disabled = false
+format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
+detect_files = ['k8s']
+
 [git_branch]
-symbol = " "
+symbol = '🌱 '
 truncation_length = 4
-truncation_symbol = ""
+truncation_symbol = ''
+ignore_branches = ['master', 'main']
 
 [git_commit]
 commit_hash_length = 4
-tag_symbol = "🔖 "
+tag_symbol = '🔖 '
 
 [git_state]
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = "[🍒 PICKING](bold red)"
+cherry_pick = '[🍒 PICKING](bold red)'
 
-[git_status]
-conflicted = "⚔️ "
-ahead = "🏎️ 💨 ×${count}"
-behind = "🐢 ×${count}"
-diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
-up_to_date = " "
-untracked = "🛤️ ×${count}"
-stashed = "📦 "
-modified = "📝 ×${count}"
-staged = "🗃️  ×${count}"
-renamed = "📛 ×${count}"
+# [git_metrics]
+# disabled = false
+# added_style = 'bold blue'
+# format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+# [git_status]
+# conflicted = '⚔️ '
+# ahead = '🏎💨'
+# behind = '🐢'
+# diverged = '😵'
+# up_to_date = ''
+# untracked = '🤷'
+# stashed = '📦'
+# modified = '📝'
+# staged = '🗃️'
+# renamed = '👅'
+# deleted = '🗑'
+
+# [git_status]
+# conflicted = "⚔️ "
+# ahead = "🏎️ 💨×${count}"
+# behind = "🐢×${count}"
+# diverged = "🔱 🏎️ 💨×${ahead_count} 🐢×${behind_count}"
+# up_to_date = ""
+# untracked = "🛤️ ×${count}"
+# stashed = '📦'
+# modified = "📝×${count}"
+# staged = "🗃️×${count}"
+# renamed = "📛×${count}"
+# deleted = "🗑×${count}"
