@@ -14,15 +14,17 @@ error_symbol = "[](bold red)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
-disabled = true
+disabled = false
 
 [os]
 disabled = false
+format = 'on [$symbol$cloud(\($project\))]($style)'
 style = "bold blue"
 
 [os.symbols]
 Windows = " "
 Macos = " "
+Linux = "🐧 "
 
 [directory]
 truncation_length = 5
