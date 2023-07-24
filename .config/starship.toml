@@ -7,9 +7,9 @@ disabled = true
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                            # The name of the module we are configuring is "character"
-# success_symbol = "[➜](bold blue)"     # The "success_symbol" segment is being set to "➜" with the color "bold blue"
-# vimcmd_symbol = "[➜](bold purple)"
-# vimcmd_visual_symbol = "[➜](bold purple)"
+success_symbol = "[❯](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold blue"
+vimcmd_symbol = "[❮](bold purple)"
+vimcmd_visual_symbol = "[❮ ](bold blue)"
 error_symbol = "[](bold red)"
 
 # Disable the package module, hiding it from the prompt completely
@@ -18,13 +18,14 @@ disabled = false
 
 [os]
 disabled = false
-format = 'on [$symbol$cloud(\($project\))]($style)'
+format = 'on [$symbol$cloud(\($project\))]($style) '
 style = "bold blue"
 
 [os.symbols]
 Windows = " "
 Macos = " "
 Linux = "🐧 "
+Arch = "🐧 "
 
 [directory]
 truncation_length = 5
