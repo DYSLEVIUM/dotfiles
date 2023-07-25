@@ -1,6 +1,13 @@
 local Utils = require("core.utils")
 
 local default_plugins = {
+    {
+        "mbbill/undotree",
+        event = "VeryLazy",
+        config = function()
+            vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle)
+        end
+    },
     { "nvim-lua/plenary.nvim" },
     {
         "mg979/vim-visual-multi",
@@ -639,26 +646,26 @@ local default_plugins = {
                 desc =
                 "Dismiss All"
             },
-            {
-                "<c-f>",
-                function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end,
-                silent = true,
-                expr = true,
-                desc =
-                "Scroll forward",
-                mode = {
-                    "i", "n", "s" }
-            },
-            {
-                "<c-b>",
-                function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end,
-                silent = true,
-                expr = true,
-                desc =
-                "Scroll backward",
-                mode = {
-                    "i", "n", "s" }
-            },
+            -- {
+            --     "<c-f>",
+            --     function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end,
+            --     silent = true,
+            --     expr = true,
+            --     desc =
+            --     "Scroll forward",
+            --     mode = {
+            --         "i", "n", "s" }
+            -- },
+            -- {
+            --     "<c-b>",
+            --     function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end,
+            --     silent = true,
+            --     expr = true,
+            --     desc =
+            --     "Scroll backward",
+            --     mode = {
+            --         "i", "n", "s" }
+            -- },
         },
     },
     {
