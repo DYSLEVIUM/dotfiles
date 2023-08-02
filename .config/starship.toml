@@ -66,10 +66,10 @@ threshold = 30
 style = "bold red"
 
 [nodejs]
-format = "via [🤖 $version](bold green)"
+format = "via [🤖 $version](bold green) "
 
 [docker_context]
-format = "via [🐋 $context](blue bold)"
+format = "via [🐋 $context](blue bold) "
 
 [kubernetes]
 disabled = false
