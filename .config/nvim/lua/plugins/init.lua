@@ -2,11 +2,24 @@ local Utils = require("core.utils")
 
 local default_plugins = {
     {
+        "christoomey/vim-tmux-navigator",
+        lazy = false,
+    },
+    {
         "mbbill/undotree",
         event = "VeryLazy",
         config = function()
             vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle)
         end
+    },
+    {
+        "sudormrfbin/cheatsheet.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            { 'nvim-telescope/telescope.nvim' },
+            { 'nvim-lua/popup.nvim' },
+            { 'nvim-lua/plenary.nvim' },
+        },
     },
     { "nvim-lua/plenary.nvim" },
     {
