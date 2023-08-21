@@ -25,9 +25,10 @@ alias docker='docker'
 alias cc='clear'
 alias n='nvim'
 alias cp='rsync -ivP'
+alias rm='rm -i'
 
 function mkcd --description "Create directory and change to that path"
-    command mkdir $argv; cd $argv
+    command mkdir -p $argv; cd $argv
 end
 
 function wrap_fzf_file
