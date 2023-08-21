@@ -26,6 +26,10 @@ alias cc='clear'
 alias n='nvim'
 alias cp='rsync -ivP'
 
+function mkcd --description "Create directory and change to that path"
+    command mkdir $argv; cd $argv
+end
+
 function wrap_fzf_file
   fzf_file --preview "bat --style=numbers --color=always --line-range :500 {}"
 end
