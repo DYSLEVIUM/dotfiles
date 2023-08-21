@@ -24,7 +24,7 @@ alias grep='grep --color=auto'
 alias docker='docker'
 alias cc='clear'
 alias n='nvim'
-alias cp='cp -i'
+alias cp='rsync -ivP'
 
 function wrap_fzf_file
   fzf_file --preview "bat --style=numbers --color=always --line-range :500 {}"
