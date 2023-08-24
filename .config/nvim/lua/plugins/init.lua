@@ -1,31 +1,8 @@
 local Utils = require("core.utils")
 
 local default_plugins = {
-    {
-        "christoomey/vim-tmux-navigator",
-        lazy = false,
-    },
-    {
-        "mbbill/undotree",
-        event = "VeryLazy",
-        config = function()
-            vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle)
-        end
-    },
-    {
-        "sudormrfbin/cheatsheet.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            { 'nvim-telescope/telescope.nvim' },
-            { 'nvim-lua/popup.nvim' },
-            { 'nvim-lua/plenary.nvim' },
-        },
-    },
+    -- ui
     { "nvim-lua/plenary.nvim" },
-    {
-        "mg979/vim-visual-multi",
-        event = "VeryLazy",
-    },
     {
         "ellisonleao/gruvbox.nvim",
         lazy = false,
@@ -83,7 +60,9 @@ local default_plugins = {
             open_files_do_not_replace_types = { "terminal", "Trouble", "qf", "Outline" },
             filesystem = {
                 bind_to_cwd = false,
-                follow_current_file = true,
+                follow_current_file = {
+                    enabled = true
+                },
                 use_libuv_file_watcher = true,
             },
             window = {
@@ -123,6 +102,85 @@ local default_plugins = {
         end,
     },
     {
+        "anuvyklack/windows.nvim",
+        dependencies = {
+            "anuvyklack/middleclass",
+            "anuvyklack/animation.nvim"
+        },
+        config = function()
+            vim.o.winwidth = 10
+            vim.o.winminwidth = 10
+            vim.o.equalalways = false
+            require('windows').setup()
+        end
+    },
+
+    -- navigation
+    {
+        "christoomey/vim-tmux-navigator",
+        lazy = false,
+    },
+    {
+        "mg979/vim-visual-multi",
+        event = "VeryLazy",
+    },
+    {
+        "tpope/vim-repeat",
+        event = "VeryLazy",
+    },
+    {
+        "karb94/neoscroll.nvim",
+        event = "VeryLazy",
+        opts = {
+            easing_function = "quadratic",
+            hide_cursor = false,
+        },
+        config = function(_, opts)
+            require("neoscroll").setup(opts)
+        end,
+    },
+
+    {
+        "sudormrfbin/cheatsheet.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            {'nvim-telescope/telescope.nvim'},
+            {'nvim-lua/popup.nvim'},
+            {'nvim-lua/plenary.nvim'},
+        },
+    },
+    {
+        "folke/neoconf.nvim",
+        event = "VeryLazy",
+        cmd = "Neoconf",
+        config = false,
+        dependencies = {
+            "nvim-lspconfig"
+        }
+    },
+    {
+        "jose-elias-alvarez/null-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = { "mason.nvim" },
+        opts = function()
+        local nls = require("null-ls")
+        return {
+          root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
+          sources = {
+            nls.builtins.formatting.fish_indent,
+            nls.builtins.diagnostics.fish,
+            nls.builtins.formatting.stylua,
+            nls.builtins.formatting.shfmt,
+            -- nls.builtins.diagnostics.flake8,
+          },
+        }
+        end,
+    },
+    {
+        "williamboman/mason-lspconfig.nvim",
+        event = "VeryLazy"
+    },
+    {
         "windwp/nvim-ts-autotag",
         event = "VeryLazy",
         config = function(_, opts)
@@ -160,45 +218,45 @@ local default_plugins = {
             { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
         },
     },
-    -- {
-    --     "folke/flash.nvim",
-    --     event = "VeryLazy",
-    --     vscode = true,
-    --     ---@type Flash.Config
-    --     opts = {},
-    --     -- stylua: ignore
-    --     keys = {
-    --         { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-    --         {
-    --             "S",
-    --             mode = { "n", "o", "x" },
-    --             function() require("flash").treesitter() end,
-    --             desc =
-    --             "Flash Treesitter"
-    --         },
-    --         {
-    --             "r",
-    --             mode = "o",
-    --             function() require("flash").remote() end,
-    --             desc =
-    --             "Remote Flash"
-    --         },
-    --         {
-    --             "R",
-    --             mode = { "o", "x" },
-    --             function() require("flash").treesitter_search() end,
-    --             desc =
-    --             "Treesitter Search"
-    --         },
-    --         {
-    --             "<c-s>",
-    --             mode = { "c" },
-    --             function() require("flash").toggle() end,
-    --             desc =
-    --             "Toggle Flash Search"
-    --         },
-    --     },
-    -- },
+    {
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        vscode = true,
+        ---@type Flash.Config
+        opts = {},
+        -- stylua: ignore
+        keys = {
+            { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+            {
+                "S",
+                mode = { "n", "o", "x" },
+                function() require("flash").treesitter() end,
+                desc =
+                "Flash Treesitter"
+            },
+            {
+                "r",
+                mode = "o",
+                function() require("flash").remote() end,
+                desc =
+                "Remote Flash"
+            },
+            {
+                "R",
+                mode = { "o", "x" },
+                function() require("flash").treesitter_search() end,
+                desc =
+                "Treesitter Search"
+            },
+            {
+                "<c-s>",
+                mode = { "c" },
+                function() require("flash").toggle() end,
+                desc =
+                "Toggle Flash Search"
+            },
+        },
+    },
     {
         "nvim-telescope/telescope.nvim",
         event = "VeryLazy",
@@ -207,128 +265,130 @@ local default_plugins = {
             "nvim-tree/nvim-web-devicons",
             "nvim-lua/plenary.nvim",
         },
-        keys = {
-            { "<leader>,",       "<cmd>Telescope buffers show_all_buffers=true<cr>",    desc = "Switch Buffer" },
-            { "<leader>/",       Utils.telescope("live_grep"),                          desc = "Grep (root dir)" },
-            { "<leader>:",       "<cmd>Telescope command_history<cr>",                  desc = "Command History" },
-            { "<leader><space>", Utils.telescope("files"),                              desc = "Find Files (root dir)" },
-            -- find
-            { "<leader>fb",      "<cmd>Telescope buffers<cr>",                          desc = "Buffers" },
-            { "<leader>ff",      Utils.telescope("files"),                              desc = "Find Files (root dir)" },
-            { "<leader>fF",      Utils.telescope("files", { cwd = false }),             desc = "Find Files (cwd)" },
-            { "<leader>fr",      "<cmd>Telescope oldfiles<cr>",                         desc = "Recent" },
-            { "<leader>fR",      Utils.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
-            -- git
-            { "<leader>gc",      "<cmd>Telescope git_commits<CR>",                      desc = "commits" },
-            { "<leader>gs",      "<cmd>Telescope git_status<CR>",                       desc = "status" },
-            -- search
-            { "<leader>sa",      "<cmd>Telescope autocommands<cr>",                     desc = "Auto Commands" },
-            { "<leader>sb",      "<cmd>Telescope current_buffer_fuzzy_find<cr>",        desc = "Buffer" },
-            { "<leader>sc",      "<cmd>Telescope command_history<cr>",                  desc = "Command History" },
-            { "<leader>sC",      "<cmd>Telescope commands<cr>",                         desc = "Commands" },
-            { "<leader>sd",      "<cmd>Telescope diagnostics bufnr=0<cr>",              desc = "Document diagnostics" },
-            { "<leader>sD",      "<cmd>Telescope diagnostics<cr>",                      desc = "Workspace diagnostics" },
-            { "<leader>sg",      Utils.telescope("live_grep"),                          desc = "Grep (root dir)" },
-            { "<leader>sG",      Utils.telescope("live_grep", { cwd = false }),         desc = "Grep (cwd)" },
-            { "<leader>sh",      "<cmd>Telescope help_tags<cr>",                        desc = "Help Pages" },
-            {
-                "<leader>sH",
-                "<cmd>Telescope highlights<cr>",
-                desc =
-                "Search Highlight Groups"
-            },
-            { "<leader>sk", "<cmd>Telescope keymaps<cr>",                    desc = "Key Maps" },
-            { "<leader>sM", "<cmd>Telescope man_pages<cr>",                  desc = "Man Pages" },
-            { "<leader>sm", "<cmd>Telescope marks<cr>",                      desc = "Jump to Mark" },
-            { "<leader>so", "<cmd>Telescope vim_options<cr>",                desc = "Options" },
-            { "<leader>sR", "<cmd>Telescope resume<cr>",                     desc = "Resume" },
-            { "<leader>sw", Utils.telescope("grep_string"),                  desc = "Word (root dir)" },
-            { "<leader>sW", Utils.telescope("grep_string", { cwd = false }), desc = "Word (cwd)" },
-            {
-                "<leader>uC",
-                Utils.telescope("colorscheme", { enable_preview = true }),
-                desc =
-                "Colorscheme with preview"
-            },
-            {
-                "<leader>ss",
-                Utils.telescope("lsp_document_symbols", {
-                    symbols = {
-                        "Class",
-                        "Function",
-                        "Method",
-                        "Constructor",
-                        "Interface",
-                        "Module",
-                        "Struct",
-                        "Trait",
-                        "Field",
-                        "Property",
-                    },
-                }),
-                desc = "Goto Symbol",
-            },
-            {
-                "<leader>sS",
-                Utils.telescope("lsp_dynamic_workspace_symbols", {
-                    symbols = {
-                        "Class",
-                        "Function",
-                        "Method",
-                        "Constructor",
-                        "Interface",
-                        "Module",
-                        "Struct",
-                        "Trait",
-                        "Field",
-                        "Property",
-                    },
-                }),
-                desc = "Goto Symbol (Workspace)",
-            },
-        },
+        -- keys = {
+        --     { "<leader>,",       "<cmd>Telescope buffers show_all_buffers=true<cr>",    desc = "Switch Buffer" },
+        --     { "<leader>/",       Utils.telescope("live_grep"),                          desc = "Grep (root dir)" },
+        --     { "<leader>:",       "<cmd>Telescope command_history<cr>",                  desc = "Command History" },
+        --     { "<leader><space>", Utils.telescope("files"),                              desc = "Find Files (root dir)" },
+        --     -- find
+        --     { "<leader>fb",      "<cmd>Telescope buffers<cr>",                          desc = "Buffers" },
+        --     { "<leader>ff",      Utils.telescope("files"),                              desc = "Find Files (root dir)" },
+        --     { "<leader>fF",      Utils.telescope("files", { cwd = false }),             desc = "Find Files (cwd)" },
+        --     { "<leader>fr",      "<cmd>Telescope oldfiles<cr>",                         desc = "Recent" },
+        --     { "<leader>fR",      Utils.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
+        --     -- git
+        --     { "<leader>gc",      "<cmd>Telescope git_commits<CR>",                      desc = "commits" },
+        --     { "<leader>gs",      "<cmd>Telescope git_status<CR>",                       desc = "status" },
+        --     -- search
+        --     { "<leader>sa",      "<cmd>Telescope autocommands<cr>",                     desc = "Auto Commands" },
+        --     { "<leader>sb",      "<cmd>Telescope current_buffer_fuzzy_find<cr>",        desc = "Buffer" },
+        --     { "<leader>sc",      "<cmd>Telescope command_history<cr>",                  desc = "Command History" },
+        --     { "<leader>sC",      "<cmd>Telescope commands<cr>",                         desc = "Commands" },
+        --     { "<leader>sd",      "<cmd>Telescope diagnostics bufnr=0<cr>",              desc = "Document diagnostics" },
+        --     { "<leader>sD",      "<cmd>Telescope diagnostics<cr>",                      desc = "Workspace diagnostics" },
+        --     { "<leader>sg",      Utils.telescope("live_grep"),                          desc = "Grep (root dir)" },
+        --     { "<leader>sG",      Utils.telescope("live_grep", { cwd = false }),         desc = "Grep (cwd)" },
+        --     { "<leader>sh",      "<cmd>Telescope help_tags<cr>",                        desc = "Help Pages" },
+        --     {
+        --         "<leader>sH",
+        --         "<cmd>Telescope highlights<cr>",
+        --         desc =
+        --         "Search Highlight Groups"
+        --     },
+        --     { "<leader>sk", "<cmd>Telescope keymaps<cr>",                    desc = "Key Maps" },
+        --     { "<leader>sM", "<cmd>Telescope man_pages<cr>",                  desc = "Man Pages" },
+        --     { "<leader>sm", "<cmd>Telescope marks<cr>",                      desc = "Jump to Mark" },
+        --     { "<leader>so", "<cmd>Telescope vim_options<cr>",                desc = "Options" },
+        --     { "<leader>sR", "<cmd>Telescope resume<cr>",                     desc = "Resume" },
+        --     { "<leader>sw", Utils.telescope("grep_string"),                  desc = "Word (root dir)" },
+        --     { "<leader>sW", Utils.telescope("grep_string", { cwd = false }), desc = "Word (cwd)" },
+        --     {
+        --         "<leader>uC",
+        --         Utils.telescope("colorscheme", { enable_preview = true }),
+        --         desc =
+        --         "Colorscheme with preview"
+        --     },
+        --     {
+        --         "<leader>ss",
+        --         Utils.telescope("lsp_document_symbols", {
+        --             symbols = {
+        --                 "Class",
+        --                 "Function",
+        --                 "Method",
+        --                 "Constructor",
+        --                 "Interface",
+        --                 "Module",
+        --                 "Struct",
+        --                 "Trait",
+        --                 "Field",
+        --                 "Property",
+        --             },
+        --         }),
+        --         desc = "Goto Symbol",
+        --     },
+        --     {
+        --         "<leader>sS",
+        --         Utils.telescope("lsp_dynamic_workspace_symbols", {
+        --             symbols = {
+        --                 "Class",
+        --                 "Function",
+        --                 "Method",
+        --                 "Constructor",
+        --                 "Interface",
+        --                 "Module",
+        --                 "Struct",
+        --                 "Trait",
+        --                 "Field",
+        --                 "Property",
+        --             },
+        --         }),
+        --         desc = "Goto Symbol (Workspace)",
+        --     },
+        -- },
         opts = function()
             return require "plugins.configs.telescope"
         end,
-
+        init = function()
+            require("core.utils").load_mappings "telescope"
+        end,
         config = function(_, opts)
             local telescope = require "telescope"
             telescope.setup(opts)
-
+    
             -- load extensions
             for _, ext in ipairs(opts.extensions_list) do
                 telescope.load_extension(ext)
             end
         end
     },
-    -- {
-    --     "nvim-telescope/telescope.nvim",
-    --     event = "VeryLazy",
-    --     dependencies = "folke/flash.nvim",
-    --     opts = function(_, opts)
-    --         local function flash(prompt_bufnr)
-    --             require("flash").jump({
-    --                 pattern = "^",
-    --                 label = { after = { 0, 0 } },
-    --                 search = {
-    --                     mode = "search",
-    --                     exclude = {
-    --                         function(win)
-    --                             return vim.bo[vim.api.nvim_win_get_buf(win)].filetype ~= "TelescopeResults"
-    --                         end,
-    --                     },
-    --                 },
-    --                 action = function(match)
-    --                     local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
-    --                     picker:set_selection(match.pos[1] - 1)
-    --                 end,
-    --             })
-    --         end
-    --         opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
-    --             mappings = { n = { s = flash }, i = { ["<c-s>"] = flash } },
-    --         })
-    --     end,
-    -- },
+    {
+        "nvim-telescope/telescope.nvim",
+        event = "VeryLazy",
+        dependencies = "folke/flash.nvim",
+        opts = function(_, opts)
+            local function flash(prompt_bufnr)
+                require("flash").jump({
+                    pattern = "^",
+                    label = { after = { 0, 0 } },
+                    search = {
+                        mode = "search",
+                        exclude = {
+                            function(win)
+                                return vim.bo[vim.api.nvim_win_get_buf(win)].filetype ~= "TelescopeResults"
+                            end,
+                        },
+                    },
+                    action = function(match)
+                        local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+                        picker:set_selection(match.pos[1] - 1)
+                    end,
+                })
+            end
+            opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
+                mappings = { n = { s = flash }, i = { ["<c-s>"] = flash } },
+            })
+        end,
+    },
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
@@ -527,36 +587,31 @@ local default_plugins = {
         end,
     },
     {
-        "tpope/vim-surround",
-        event = "InsertEnter"
+        "echasnovski/mini.surround",
+        event = "InsertEnter",
+        keys = {
+            { "gza", desc = "Add surrounding",                     mode = { "n", "v" } },
+            { "gzd", desc = "Delete surrounding" },
+            { "gzf", desc = "Find right surrounding" },
+            { "gzF", desc = "Find left surrounding" },
+            { "gzh", desc = "Highlight surrounding" },
+            { "gzr", desc = "Replace surrounding" },
+            { "gzn", desc = "Update `MiniSurround.config.n_lines`" },
+        },
+        opts = {
+            mappings = {
+                add = "gza",            -- Add surrounding in Normal and Visual modes
+                delete = "gzd",         -- Delete surrounding
+                find = "gzf",           -- Find surrounding (to the right)
+                find_left = "gzF",      -- Find surrounding (to the left)
+                highlight = "gzh",      -- Highlight surrounding
+                replace = "gzr",        -- Replace surrounding
+                update_n_lines = "gzn", -- Update `n_lines`
+            },
+        },
     },
-    -- {
-    --     "echasnovski/mini.surround",
-    --     event = "InsertEnter",
-    --     keys = {
-    --         { "gza", desc = "Add surrounding",                     mode = { "n", "v" } },
-    --         { "gzd", desc = "Delete surrounding" },
-    --         { "gzf", desc = "Find right surrounding" },
-    --         { "gzF", desc = "Find left surrounding" },
-    --         { "gzh", desc = "Highlight surrounding" },
-    --         { "gzr", desc = "Replace surrounding" },
-    --         { "gzn", desc = "Update `MiniSurround.config.n_lines`" },
-    --     },
-    --     opts = {
-    --         mappings = {
-    --             add = "gza",            -- Add surrounding in Normal and Visual modes
-    --             delete = "gzd",         -- Delete surrounding
-    --             find = "gzf",           -- Find surrounding (to the right)
-    --             find_left = "gzF",      -- Find surrounding (to the left)
-    --             highlight = "gzh",      -- Highlight surrounding
-    --             replace = "gzr",        -- Replace surrounding
-    --             update_n_lines = "gzn", -- Update `n_lines`
-    --         },
-    --     },
-    -- },
     {
         "rcarriga/nvim-notify",
-        event = "VeryLazy",
         keys = {
             {
                 "<leader>un",
@@ -570,10 +625,10 @@ local default_plugins = {
             timeout = 3000,
             background_colour = "#000000",
             max_height = function()
-                return math.floor(vim.o.lines * 0.75)
+                return math.floor(vim.o.lines * 0.5)
             end,
             max_width = function()
-                return math.floor(vim.o.columns * 0.75)
+                return math.floor(vim.o.columns * 0.5)
             end,
         },
         init = function()
@@ -583,6 +638,69 @@ local default_plugins = {
                     vim.notify = require("notify")
                 end)
             end
+        end,
+    },
+    {
+        "SmiteshP/nvim-navbuddy",
+        event = "LspAttach",
+        dependencies = {
+          "SmiteshP/nvim-navic",
+        },
+        config = function()
+          require("nvim-navbuddy").setup({
+            icons = icons,
+          })
+        end,
+        cmd = "Navbuddy",
+    }, -- Outline symbols
+--     {
+--         "Bekaboo/dropbar.nvim",
+--         event = { "LspAttach" },
+--         opts = {
+--           icons = {
+--             kinds = {
+--               symbols = icons,
+--             },
+--             ui = {
+--               bar = {
+--                 separator = "  ",
+--               },
+--             },
+--           },
+-- --          sources = {
+-- --            path = {
+-- --              relative_to = function(_)
+-- --                local current_directory = vim.fn.expand('%:p:h')
+-- --                local parent_directory = vim.fn.fnamemodify(current_directory, ':h')
+-- --                return parent_directory
+-- --              end
+-- --            }
+-- --          },
+-- --          menu = {
+-- --            win_confings = {
+-- --              border = utils.border_status,
+-- --            },
+-- --          },
+--         },
+--     },
+    {
+        "petertriho/nvim-scrollbar",
+        event = { "BufReadPost", "BufNewFile" },
+        config = function()
+          require("scrollbar").setup({
+            handle = {
+                color = "#665C54",
+            },
+            marks = {
+                Search = { color = "#FE8019" },
+                Error = { color = "#FB4934" },
+                Warn = { color = "#D65D0e" },
+                Info = { color = "#458588" },
+                Hint = { color = "#FABD2F" },
+                Misc = { color = "#D3869B" },
+            }
+          })
+          require("scrollbar.handlers.gitsigns").setup()
         end,
     },
     {
@@ -610,7 +728,8 @@ local default_plugins = {
                 },
             },
             presets = {
-                bottom_search = true,
+                -- bottom_search = true,
+                bottom_search = false,
                 command_palette = true,
                 long_message_to_split = true,
                 inc_rename = true,
@@ -620,11 +739,42 @@ local default_plugins = {
                 -- view = "cmdline_popup",
                 view = "cmdline",
                 format = {
+                    conceal = true,
                     conceal = false,
                     -- cmdline = { pattern = "^:", icon = "", lang = "vim" },
                     cmdline = false,
                 }
-            }
+            },
+            views = {
+                cmdline_popup = {
+                    position = {
+                        row = 5,
+                        col = "50%",
+                    },
+                    size = {
+                        width = 60,
+                        height = "auto",
+                    },
+                },
+                popupmenu = {
+                    relative = "editor",
+                    position = {
+                        row = 8,
+                        col = "50%",
+                    },
+                    size = {
+                        width = 60,
+                        height = 10,
+                    },
+                    border = {
+                        style = "single",
+                        padding = { 0, 1 },
+                    },
+                    win_options = {
+                        winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+                    },
+                },
+            },
         },
         -- stylua: ignore
         keys = {
@@ -659,26 +809,26 @@ local default_plugins = {
                 desc =
                 "Dismiss All"
             },
-            -- {
-            --     "<c-f>",
-            --     function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end,
-            --     silent = true,
-            --     expr = true,
-            --     desc =
-            --     "Scroll forward",
-            --     mode = {
-            --         "i", "n", "s" }
-            -- },
-            -- {
-            --     "<c-b>",
-            --     function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end,
-            --     silent = true,
-            --     expr = true,
-            --     desc =
-            --     "Scroll backward",
-            --     mode = {
-            --         "i", "n", "s" }
-            -- },
+            {
+                "<c-f>",
+                function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end,
+                silent = true,
+                expr = true,
+                desc =
+                "Scroll forward",
+                mode = {
+                    "i", "n", "s" }
+            },
+            {
+                "<c-b>",
+                function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end,
+                silent = true,
+                expr = true,
+                desc =
+                "Scroll backward",
+                mode = {
+                    "i", "n", "s" }
+            },
         },
     },
     {
@@ -714,7 +864,7 @@ local default_plugins = {
                 },
 
                 diagnostics = "nvim_lsp",
-                always_show_bufferline = true,
+                always_show_bufferline = false,
                 diagnostics_indicator = function(_, _, diag)
                     local icons = require("core.icons").icons.diagnostics
                     local ret = (diag.error and icons.Error .. diag.error .. " " or "")
@@ -742,79 +892,23 @@ local default_plugins = {
     },
     {
         "SmiteshP/nvim-navic",
-        dependencies = "neovim/nvim-lspconfig",
-        -- event = "VeryLazy",
-        -- init = function()
-        --     vim.g.navic_silence = true
-        --     Utils.on_attach(function(client, buffer)
-        --         if client.server_capabilities.documentSymbolProvider then
-        --             require("nvim-navic").attach(client, buffer)
-        --         end
-        --     end)
-        -- end,
-        -- opts = {
-        --     separator = " ",
-        --     highlight = true,
-        --     -- depth_limit = 5,
-        --     icons = require("core.icons").icons.kinds,
-        --     lsp = {
-        --         auto_attach = true,
-        --         -- preference = nil,
-        --     },
-        -- },
-        init = function ()
-            require("core.utils").lazy_load "nvim-lspconfig"
+        event = "VeryLazy",
+        init = function()
+            vim.g.navic_silence = true
+            Utils.on_attach(function(client, buffer)
+                if client.server_capabilities.documentSymbolProvider then
+                    require("nvim-navic").attach(client, buffer)
+                end
+            end)
         end,
-        config = function()
-            -- local navic = require('nvim-navic')
-            -- require("lspconfig").clangd.setup {
-            --     on_attach = function(client, bufnr)
-            --         navic.attach(client, bufnr)
-            --     end
-            -- }
-            require("nvim-navic").setup {
-                icons = {
-                    File          = "󰈙 ",
-                    Module        = " ",
-                    Namespace     = "󰌗 ",
-                    Package       = " ",
-                    Class         = "󰌗 ",
-                    Method        = "󰆧 ",
-                    Property      = " ",
-                    Field         = " ",
-                    Constructor   = " ",
-                    Enum          = "󰕘",
-                    Interface     = "󰕘",
-                    Function      = "󰊕 ",
-                    Variable      = "󰆧 ",
-                    Constant      = "󰏿 ",
-                    String        = "󰀬 ",
-                    Number        = "󰎠 ",
-                    Boolean       = "◩ ",
-                    Array         = "󰅪 ",
-                    Object        = "󰅩 ",
-                    Key           = "󰌋 ",
-                    Null          = "󰟢 ",
-                    EnumMember    = " ",
-                    Struct        = "󰌗 ",
-                    Event         = " ",
-                    Operator      = "󰆕 ",
-                    TypeParameter = "󰊄 ",
-                },
-                lsp = {
-                    auto_attach = false,
-                    preference = nil,
-                },
-                highlight = false,
-                separator = " > ",
-                depth_limit = 0,
-                depth_limit_indicator = "..",
-                safe_output = true,
-                lazy_update_context = false,
-                click = false
-            }
-        end
+        opts = {
+            separator = " ",
+            highlight = true,
+            depth_limit = 5,
+            icons = require("core.icons").icons.kinds,
+        },
     },
+
     {
         "echasnovski/mini.indentscope",
         event = { "BufReadPre", "BufNewFile" },
@@ -855,25 +949,6 @@ local default_plugins = {
                 opts = { lsp = { auto_attach = true } }
             }
         },
-        -- config = function()
-        --     local navic = require("nvim-navic")
-        --     local function on_attach(client, bufnr)
-        --         if client.server_capabilities.documentSymbolProvider then
-        --             navic.attach(client, bufnr)
-        --         end
-        --     end
-        --
-        --     vim.o.winbar = " %{%v:lua.vim.fn.expand('%F')%}  %{%v:lua.require'nvim-navic'.get_location()%}"
-        -- end,
-        -- config = function()
-        --     local navic = require("nvim-navic")
-        --
-        --     require("lspconfig").clangd.setup {
-        --         on_attach = function(client, bufnr)
-        --             navic.attach(client, bufnr)
-        --         end
-        --     }
-        -- end
     },
     --     {
     --     "neovim/nvim-lspconfig",
@@ -914,7 +989,8 @@ local default_plugins = {
                             icon_only = true,
                             separator = "",
                             padding = {
-                                left = 1, right = 0 }
+                                left = 1, right = 0 
+                            }
                         },
                         { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
                         -- stylua: ignore
@@ -967,16 +1043,16 @@ local default_plugins = {
                         { "location", padding = { left = 0, right = 1 } },
                     },
                     lualine_z = {
-                        function()
-                            return " " .. os.date("%R")
-                        end,
+                        -- function()
+                        --     return " " .. os.date("%R")
+                        -- end,
                     },
                 },
                 extensions = { "neo-tree", "lazy" },
             }
         end,
-        config = function()
-            require("lualine").setup()
+        config = function(_, opts)
+            require("lualine").setup(opts)
         end
     },
     {
@@ -993,7 +1069,6 @@ local default_plugins = {
         config = function()
             require('dashboard').setup {
                 theme = 'hyper',
-
                 config = {
                     -- week_header = {
                     --     enable = true,
@@ -1065,30 +1140,6 @@ local default_plugins = {
         end
     },
     {
-        "karb94/neoscroll.nvim",
-        event = "VeryLazy",
-        opts = {
-            easing_function = "quadratic",
-            hide_cursor = false,
-        },
-        config = function(_, opts)
-            require("neoscroll").setup(opts)
-        end,
-    },
-    {
-        "anuvyklack/windows.nvim",
-        dependencies = {
-            "anuvyklack/middleclass",
-            "anuvyklack/animation.nvim"
-        },
-        config = function()
-            vim.o.winwidth = 10
-            vim.o.winminwidth = 10
-            vim.o.equalalways = false
-            require('windows').setup()
-        end
-    },
-    {
         'akinsho/toggleterm.nvim',
         event = { "BufReadPost", "BufNewFile" },
         opts = {
@@ -1146,12 +1197,10 @@ local default_plugins = {
                     { "<tab>",   function() require("luasnip").jump(1) end,  mode = "s" },
                     { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
                 },
-
                 config = function(_, opts)
                     require("plugins.configs.luasnip")(opts)
                 end
             },
-
             -- autopairing of (){}[] etc
             {
                 "windwp/nvim-autopairs",
@@ -1161,13 +1210,11 @@ local default_plugins = {
                 },
                 config = function(_, opts)
                     require("nvim-autopairs").setup(opts)
-
                     -- setup cmp for autopairs
                     local cmp_autopairs = require "nvim-autopairs.completion.cmp"
                     require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
                 end,
             },
-
             -- cmp sources plugins
             {
                 "saadparwaiz1/cmp_luasnip",
@@ -1181,14 +1228,7 @@ local default_plugins = {
             return require "plugins.configs.cmp"
         end,
     },
-    {
-        "tpope/vim-repeat",
-        event = "VeryLazy",
-    },
-    {
-        "f-person/git-blame.nvim",
-        event = "VeryLazy",
-    },
+    { "f-person/git-blame.nvim", },
 }
 
 local config = Utils.load_config()
