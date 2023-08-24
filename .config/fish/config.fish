@@ -28,6 +28,7 @@ alias cp='rsync -ivP'
 alias rm='rm -i'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias -- -='cd -' # use - to go backward
 
 function mkcd --description "Create directory and change to that path"
     command mkdir -p $argv; cd $argv
