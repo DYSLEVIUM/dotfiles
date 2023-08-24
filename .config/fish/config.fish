@@ -28,7 +28,7 @@ alias cp='rsync -ivP'
 alias rm='rm -i'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias -- -='cd -' # use - to go backward
+alias eip='curl ifconf.me'
 
 function mkcd --description "Create directory and change to that path"
     command mkdir -p $argv; cd $argv
