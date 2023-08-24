@@ -26,6 +26,8 @@ alias cc='clear'
 alias n='nvim'
 alias cp='rsync -ivP'
 alias rm='rm -i'
+alias ..='cd ..'
+alias ...='cd ../..'
 
 function mkcd --description "Create directory and change to that path"
     command mkdir -p $argv; cd $argv
