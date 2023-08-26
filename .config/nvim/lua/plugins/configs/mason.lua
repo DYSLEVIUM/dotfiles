@@ -6,10 +6,10 @@ return {
             ensure_installed = { "awk-language-server", "bash-language-server", "black", "autopep8", "cpptools","clang-format", "clangd",
                 "cmake-language-server", "cmakelang", "codespell", "css-lsp",
                 "cssmodules-language-server", "docker-compose-language-service", "dockerfile-language-server",
-                "emmet-language-server", "eslint-lsp", "eslint_d",
+                "emmet-language-server", "eslint-lsp", "eslint_d", "gopls", "hunspell", "golangci-lint", "golangci-lint-langserver",
                 "graphql-language-service-cli", "helm-ls", "html-lsp",
-                "lua-language-server",
-                "prettierd", "python-lsp-server",
+                "lua-language-server", "luacheck", "luaformatter",
+                "prettierd", "python-lsp-server", "staticcheck",
                 "shellcheck", "tailwindcss-language-server", "typescript-language-server", "yaml-language-server", }, -- not an option from mason.nvim
 
             PATH = "skip",
