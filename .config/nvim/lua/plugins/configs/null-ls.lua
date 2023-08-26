@@ -32,7 +32,6 @@ return {
             nls.builtins.diagnostics.dotenv_linter,
             nls.builtins.diagnostics.flake8,
             nls.builtins.diagnostics.golangci_lint,
-            nls.builtins.diagnostics.gospel,
             nls.builtins.diagnostics.jsonlint,
             nls.builtins.diagnostics.ktlint,
             nls.builtins.diagnostics.markdownlint,
