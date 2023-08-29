@@ -51,10 +51,10 @@ opt.mouse = "a"
 
 -- Numbers
 opt.number = true
-opt.numberwidth = 2
+opt.numberwidth = 1
 opt.ruler = true
 opt.relativenumber = true
-opt.statuscolumn = "%s %l %r"
+-- opt.statuscolumn = "%s %l %r"
 
 -- disable nvim intro
 opt.shortmess:append "sI"
