@@ -57,8 +57,5 @@ starship init fish | source
 # running pfetch
 pfetch
 
-# start tmux session
-if status is-interactive
-and not set -q TMUX
 	tmux new
 end
