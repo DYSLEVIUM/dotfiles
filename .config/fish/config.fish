@@ -56,3 +56,13 @@ starship init fish | source
 
 # running pfetch
 pfetch
+
+# start tmux session
+if status is-interactive
+    and not set -q TMUX
+    if tmux has-session -t default
+        exec tmux attach-session -t default
+    else
+        tmux new-session -s default
+    end
+end
