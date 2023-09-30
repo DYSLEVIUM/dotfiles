@@ -17,19 +17,6 @@ set -x PF_COL3 2
 # bat config
 set -x BAT_THEME gruvbox-dark
 
-# tmux config with fish plugin
-set -x fish_tmux_config $HOME/.config/tmux/tmux.conf
-set -x fish_tmux_default_session_name default
-
-# Abbreviations
-# Alias	Command	Description
-# ta	tmux attach -t	Attach new tmux session to already running named session
-# tad	tmux attach -d -t	Detach named tmux session
-# ts	tmux new-session -s	Create a new named tmux session
-# tl	tmux list-sessions	Displays a list of running tmux sessions
-# tksv	tmux kill-server	Terminate all running tmux sessions
-# tkss	tmux kill-session -t	Terminate named running tmux session
-
 alias ls='exa'
 alias ll='exa -laF --icons'
 alias tree='exa --tree'
