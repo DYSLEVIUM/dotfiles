@@ -35,6 +35,7 @@ alias mkdir='mkdir -p'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias eip='curl ifconf.me'
+alias p='pnpm'
 
 function mkcd --description "Create directory and change to that path"
     command mkdir -p $argv
