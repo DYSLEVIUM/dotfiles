@@ -17,7 +17,7 @@ set -x PF_COL3 2
 # bat config
 set -x BAT_THEME gruvbox-dark
 
-alias ls='exa'
+alias ls='exa -a'
 alias ll='exa -laF --icons'
 alias tree='exa --tree'
 alias cat='bat'
