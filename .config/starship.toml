@@ -1,29 +1,15 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+# add_newline = false
 
 format = """
 $os\
-$username\
 $directory\
 $git_branch\
-$git_status\
 $git_commit\
-$c\
-$rust\
-$golang\
-$nodejs\
-$php\
-$java\
-$kotlin\
-$haskell\
-$python\
-$docker_context\
-$conda\
-$time\
-$aws\
-$buf\
-$package\
-$kubernetes\
-$line_break$character"""
+$git_status\
+$cmd_duration\
+$character"""
+
+right_format = """$all"""
 
 palette = 'gruvbox_dark'
 
@@ -49,12 +35,12 @@ format = '[$user ]($style)'
 
 [directory]
 format = "[$path ]($style)"
-truncation_length = 3
+truncation_length = 2
 truncation_symbol = "…/"
 read_only = " 󰌾"
 
 [line_break]
-disabled = true
+disabled = false
 
 [character]
 disabled = false
@@ -75,7 +61,7 @@ vimcmd_visual_symbol = '[❮](bold fg:color_yellow)'
 [git_branch]
 symbol = ""
 style = "bg:color_aqua"
-format = '[[$symbol $branch ](fg:color_purple)]($style)'
+format = '[[in $symbol $branch ](fg:color_purple)]($style)'
 
 [git_status]
 conflicted = ' ⚔️ '
