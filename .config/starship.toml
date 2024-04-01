@@ -1,7 +1,6 @@
 # add_newline = false
 
 format = """
-$os\
 $directory\
 $git_branch\
 $git_commit\
@@ -26,7 +25,7 @@ color_red = '#cc241d'
 color_yellow = '#d79921'
 
 [os]
-disabled = false
+disabled = true
 format = '[$symbol $cloud(\($project\))]($style)'
 
 [username]
