@@ -142,7 +142,7 @@ style = "bg:color_bg1"
 format = '[[  $time ](fg:color_fg0 bg:color_bg1)]($style)'
 
 [aws]
-symbol = "  "
+symbol = " "
 
 [buf]
 symbol = ""
