@@ -31,6 +31,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias eip='curl ifconf.me'
 alias p='pnpm'
+alias pm='podman'
+alias k='kubectl'
+alias tf='terraform'
 
 function mkcd --description "Create directory and change to that path"
     command mkdir -p $argv
