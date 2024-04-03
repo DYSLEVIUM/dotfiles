@@ -1,4 +1,4 @@
-# add_newline = false
+add_newline = true
 
 format = """
 $directory\
@@ -142,37 +142,37 @@ style = "bg:color_bg1"
 format = '[[  $time ](fg:color_fg0 bg:color_bg1)]($style)'
 
 [aws]
-symbol = " "
+symbol = "  "
 
 [buf]
-symbol = ""
+symbol = " "
 
 [crystal]
-symbol = ""
+symbol = " "
 
 [dart]
-symbol = ""
+symbol = " "
 
 [elixir]
-symbol = ""
+symbol = " "
 
 [elm]
-symbol = ""
+symbol = " "
 
 [fennel]
-symbol = ""
+symbol = " "
 
 [fossil_branch]
-symbol = ""
+symbol = " "
 
 [guix_shell]
 symbol = " "
 
 [haxe]
-symbol = ""
+symbol = " "
 
 [hg_branch]
-symbol = ""
+symbol = " "
 
 [hostname]
 ssh_symbol = " "
@@ -198,7 +198,7 @@ symbol = "󰆥 "
 symbol = " "
 
 [nodejs]
-symbol = ""
+symbol = " "
 
 [ocaml]
 symbol = " "
@@ -255,16 +255,16 @@ symbol = "󰏗 "
 symbol = " "
 
 [pijul_channel]
-symbol = ""
+symbol = " "
 
 [rlang]
 symbol = "󰟔 "
 
 [ruby]
-symbol = ""
+symbol = " "
 
 [scala]
-symbol = ""
+symbol = " "
 
 [swift]
 symbol = " "
