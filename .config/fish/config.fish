@@ -38,9 +38,10 @@ alias tf='terraform'
 
 # git alisaes
 alias ga="git add"
+alias gs="git status"
 alias gm="git merge"
-alias gs="git switch"
-alias gsc="git switch -c"
+alias gc="git checkout"
+alias gcb="git checkout -b"
 alias gm="git merge"
 alias gba="git branch -av"
 
