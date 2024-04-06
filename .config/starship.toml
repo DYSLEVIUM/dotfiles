@@ -271,7 +271,6 @@ symbol = " "
 
 [kubernetes]
 disabled = false
-# style = "fg:color_blue"
 format = '[$symbol($context)](color_blue) '
 
 [git_commit]
