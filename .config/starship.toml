@@ -2,10 +2,6 @@ add_newline = true
 
 format = """
 $directory\
-$git_branch\
-$git_commit\
-$git_status\
-$git_metrics\
 $cmd_duration\
 $fill\
 $all\
@@ -29,7 +25,7 @@ color_red = '#cc241d'
 color_yellow = '#d79921'
 
 [git_metrics]
-disabled = false
+disabled = true
 format = '(\[([+$added]($added_style), )([-$deleted]($deleted_style))\] )'
 
 [fill]
@@ -74,6 +70,7 @@ style = "bg:color_aqua"
 format = '[[in $symbol $branch ](fg:color_purple)]($style)'
 
 [git_status]
+disabled = true
 conflicted = ' ⚔️ '
 ahead = ' 🏎💨 '
 behind = ' 🐢 '
@@ -274,9 +271,10 @@ symbol = " "
 
 [kubernetes]
 disabled = false
-format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
-detect_files = ['k8s']
+# style = "fg:color_blue"
+format = '[$symbol($context)](color_blue) '
 
 [git_commit]
+disabled = true
 commit_hash_length = 4
 tag_symbol = '🔖 '
