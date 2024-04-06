@@ -2,6 +2,7 @@ add_newline = true
 
 format = """
 $directory\
+$git_branch\
 $cmd_duration\
 $fill\
 $all\
@@ -271,6 +272,7 @@ symbol = " "
 
 [kubernetes]
 disabled = false
+# style = "fg:color_blue"
 format = '[$symbol($context)](color_blue) '
 
 [git_commit]
