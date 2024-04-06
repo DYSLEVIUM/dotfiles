@@ -16,6 +16,7 @@ set -x PF_COL3 2
 
 # bat config
 set -x BAT_THEME gruvbox-dark
+set -x K9S_CONFIG_DIR ~/.config/k9s
 
 alias ls='exa -a'
 alias ll='exa -laF --icons'
@@ -34,6 +35,14 @@ alias p='pnpm'
 alias pm='podman'
 alias k='kubectl'
 alias tf='terraform'
+
+# git alisaes
+alias ga="git add"
+alias gm="git merge"
+alias gs="git switch"
+alias gsc="git switch -c"
+alias gm="git merge"
+alias gba="git branch -av"
 
 function mkcd --description "Create directory and change to that path"
     command mkdir -p $argv
@@ -61,3 +70,21 @@ end
 # startup
 starship init fish | source
 pfetch
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /opt/homebrew/anaconda3/bin/conda
+    eval /opt/homebrew/anaconda3/bin/conda "shell.fish" hook $argv | source
+end
+# <<< conda initialize <<<
+
+# pnpm
+set -gx PNPM_HOME /Users/pushpakantbehera/Library/pnpm
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# tabtab source for packages
+# uninstall by removing these lines
+[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
