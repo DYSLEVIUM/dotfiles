@@ -44,6 +44,8 @@ alias gc="git checkout"
 alias gcb="git checkout -b"
 alias gm="git merge"
 alias gba="git branch -av"
+alias gbd="git branch -d"
+alias gpo="git push origin"
 
 function mkcd --description "Create directory and change to that path"
     command mkdir -p $argv
