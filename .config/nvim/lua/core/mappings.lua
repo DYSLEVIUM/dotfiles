@@ -57,20 +57,20 @@ M.general = {
         --         expr = true
         --     }
         -- },
-        ["<Up>"] = {
-            'v:count || mode(1)[0:1] == "no" ? "k" : "gk"',
-            "Move up",
-            opts = {
-                expr = true
-            }
-        },
-        ["<Down>"] = {
-            'v:count || mode(1)[0:1] == "no" ? "j" : "gj"',
-            "Move down",
-            opts = {
-                expr = true
-            }
-        },
+        -- ["<Up>"] = {
+        --     'v:count || mode(1)[0:1] == "no" ? "k" : "gk"',
+        --     "Move up",
+        --     opts = {
+        --         expr = true
+        --     }
+        -- },
+        -- ["<Down>"] = {
+        --     'v:count || mode(1)[0:1] == "no" ? "j" : "gj"',
+        --     "Move down",
+        --     opts = {
+        --         expr = true
+        --     }
+        -- },
 
         -- new buffer
         ["<leader>b"] = { "<cmd> enew <CR>", "New buffer" },
