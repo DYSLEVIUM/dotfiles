@@ -6,6 +6,7 @@ require "core.options"
 -- globals
 g.transparency = config.ui.transparency
 g.mapleader = " "
+g.skip_ts_context_commentstring_module = true
 
 -- disable some default providers
 for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
