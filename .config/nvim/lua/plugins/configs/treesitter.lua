@@ -8,6 +8,10 @@ return {
 			"windwp/nvim-ts-autotag",
 			event = "VeryLazy",
 		},
+		{
+		    "JoosepAlviste/nvim-ts-context-commentstring",
+		    event = "VeryLazy",
+		}
 	},
 	init = function()
 		Utils.lazy_load("nvim-treesitter")
@@ -86,8 +90,6 @@ return {
 		}
 	end,
 	config = function(_, opts)
-		require("ts_context_commentstring").setup({})
-		vim.g.skip_ts_context_commentstring_module = true
 		require("nvim-treesitter.configs").setup(opts)
 	end,
 }
