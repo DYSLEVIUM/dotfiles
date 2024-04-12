@@ -5,7 +5,7 @@ alt - k : open -a /Applications/kitty.app/Contents/MacOS/kitty
 alt - a : open -a /Applications/Arc.app/Contents/MacOS/Arc
 alt - v : open -a /Applications/Cisco/Cisco\ Secure\ Client.app/Contents/MacOS/Cisco\ Secure\ Client
 alt - z : open -a /Applications/zoom.us.app/Contents/MacOS/zoom.us
-alt - s : open -a /Applications/Spotify.app/Contents/MacOS/Spotify
+alt - m : open -a /Applications/Spotify.app/Contents/MacOS/Spotify
 
 # -- Changing Window Focus --
 
