@@ -2,6 +2,7 @@
 alt - s : open -a /Applications/Slack.app/Contents/MacOS/Slack
 alt - c : open -a /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron
 alt - k : open -a /Applications/kitty.app/Contents/MacOS/kitty
+alt - t : open -a /Applications/iTerm.app/Contents/MacOS/iTerm2
 alt - a : open -a /Applications/Arc.app/Contents/MacOS/Arc
 alt - v : open -a /Applications/Cisco/Cisco\ Secure\ Client.app/Contents/MacOS/Cisco\ Secure\ Client
 alt - z : open -a /Applications/zoom.us.app/Contents/MacOS/zoom.us
