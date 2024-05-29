@@ -18,6 +18,7 @@ set -x PF_COL3 2
 set -x BAT_THEME gruvbox-dark
 set -x K9S_CONFIG_DIR ~/.config/k9s
 
+alias exa='exa --group-directories-first'
 alias ls='exa'
 alias ll='exa -laF --icons'
 alias tree='exa --tree'
