@@ -12,7 +12,7 @@ opt.pumheight = 10
 opt.fileencoding = "utf-8"
 opt.cmdheight = 1
 opt.wildmenu = true
--- opt.lazyredraw = true
+opt.lazyredraw = true
 opt.showmatch = true
 
 opt.hlsearch = true
