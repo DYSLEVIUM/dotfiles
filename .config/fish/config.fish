@@ -4,7 +4,7 @@ set -gx COLORTERM truecolor
 fish_vi_key_bindings
 # fish_default_key_bindings
 
-theme_gruvbox dark medium
+theme_gruvbox dark hard
 
 # default editor
 set -x EDITOR nvim
