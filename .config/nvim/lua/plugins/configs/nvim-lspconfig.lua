@@ -76,7 +76,6 @@ return {
             "cmake",
             "tailwindcss",
             "lua_ls",
-            "ltex",
             "gopls",
         }
 
