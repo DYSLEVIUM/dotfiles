@@ -4,6 +4,7 @@ return {
     priority = 1000,
     opts = {
         transparent_mode = true,
+        contrast = "hard",
     },
     config = function(_, opts)
         require("gruvbox").setup(opts)
