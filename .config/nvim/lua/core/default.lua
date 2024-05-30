@@ -36,4 +36,6 @@ M.ui = {
 
 M.mappings = require "core.mappings"
 
+vim.cmd([[autocmd ColorScheme * highlight SignColumn guibg=NONE]])
+
 return M
