@@ -33,7 +33,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.36078432202339172
   },
-  "Blend" : 0.6011633831521741,
+  "Blend" : 0.68920403079710157,
   "Mouse Reporting" : true,
   "Cursor Boost" : 0,
   "Ansi 4 Color" : {
@@ -348,7 +348,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.10588235408067703
   },
-  "Blur" : true,
+  "Blur" : false,
   "Vertical Spacing" : 1,
   "Normal Font" : "FiraCodeNerdFontCompleteM-Retina 16",
   "Ansi 7 Color" : {
@@ -368,7 +368,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.10588235408067703
   },
-  "Only The Default BG Color Uses Transparency" : true,
+  "Only The Default BG Color Uses Transparency" : false,
   "Option Key Sends" : 1,
   "Minimum Contrast" : 0,
   "Ansi 15 Color" : {
@@ -378,6 +378,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.85882353782653809
   },
+  "Open Toolbelt" : false,
   "Ansi 6 Color" : {
     "Red Component" : 0.40784314274787903,
     "Color Space" : "sRGB",
@@ -406,7 +407,7 @@
   "Columns" : 80,
   "Unicode Normalization" : 0,
   "Visual Bell" : false,
-  "Custom Directory" : "No",
+  "ASCII Ligatures" : true,
   "Ansi 5 Color" : {
     "Red Component" : 0.69411766529083252,
     "Color Space" : "sRGB",
@@ -414,5 +415,5 @@
     "Alpha Component" : 1,
     "Green Component" : 0.38431373238563538
   },
-  "ASCII Ligatures" : true
+  "Custom Directory" : "No"
 }
