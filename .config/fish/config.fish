@@ -52,6 +52,10 @@ function tf --wraps terraform
     terraform $argv
 end
 
+function h --wraps helm
+    helm $argv
+end
+
 ## git
 function ga --wraps git
     git add $argv
