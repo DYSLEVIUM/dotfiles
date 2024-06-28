@@ -57,6 +57,10 @@ function h --wraps helm
 end
 
 ## git
+function g --wraps git
+    git $argv
+end
+
 function ga --wraps git
     git add $argv
 end
