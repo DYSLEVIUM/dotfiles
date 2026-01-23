@@ -1,10 +1,9 @@
 set fish_greeting
-set -gx COLORTERM truecolor
 
 fish_vi_key_bindings
 # fish_default_key_bindings
 
-theme_gruvbox dark hard
+#theme_gruvbox dark hard
 
 # default editor
 set -x EDITOR nvim
@@ -16,12 +15,14 @@ set -x PF_COL3 2
 
 # bat config
 set -x BAT_THEME gruvbox-dark
+
+# k9s config
 set -x K9S_CONFIG_DIR ~/.config/k9s
 
 alias ls='eza --group-directories-first'
 alias ll='eza -laF --icons'
 alias tree='eza --tree'
-alias cat='bat'
+alias cat='bat -p'
 alias grep='grep --color=auto'
 alias cc='clear'
 alias cp='rsync -ivP'
@@ -32,12 +33,12 @@ alias ...='cd ../..'
 alias eip='curl ifconf.me'
 
 # function aliases
-function n --wraps nvim
-    nvim $argv
+function z --wraps zoxide
+    zoxide $argv
 end
 
-function p --wraps pnpm
-    pnpm $argv
+function n --wraps nvim
+    nvim $argv
 end
 
 function pm --wraps podman
@@ -133,31 +134,43 @@ function sudo --description "Replacement for Bash 'sudo !!' command to run last 
     end
 end
 
+# Term
+set --export TERM xterm-256color
+
+# homebrew
+set --export PATH /opt/homebrew/bin $PATH
+
+# golang
+set --export PATH /Users/pushpakantbehera/go/bin $PATH
+
 # startup
 starship init fish | source
 pfetch
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /opt/homebrew/anaconda3/bin/conda
-    eval /opt/homebrew/anaconda3/bin/conda "shell.fish" hook $argv | source
-end
-# <<< conda initialize <<<
+# pyenv
+set -Ux PYENV_ROOT $HOME/.pyenv
 
-# pnpm
-set -gx PNPM_HOME /Users/pushpakantbehera/Library/pnpm
-if not string match -q -- $PNPM_HOME $PATH
-    set -gx PATH "$PNPM_HOME" $PATH
+# Add pyenv to PATH if not already there
+if not contains $PYENV_ROOT/bin $PATH
+    set -Ux PATH $PYENV_ROOT/bin $PATH
 end
 
-# tabtab source for packages
-# uninstall by removing these lines
-[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+# Initialize pyenv
+pyenv init - | source
+pyenv virtualenv-init - | source
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+set -gx ANDROID_HOME ~/Library/Android/sdk
+set -gx JAVA_HOME /opt/homebrew/opt/openjdk@17
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-set --export --prepend PATH "/Users/pushpakantbehera/.rd/bin"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+if test -f /opt/homebrew/anaconda3/bin/conda
+    eval /opt/homebrew/anaconda3/bin/conda "shell.fish" hook $argv | source
+else
+    if test -f "/opt/homebrew/anaconda3/etc/fish/conf.d/conda.fish"
+        . "/opt/homebrew/anaconda3/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH /opt/homebrew/anaconda3/bin $PATH
+    end
+end
