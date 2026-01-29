@@ -1,9 +1,7 @@
 set fish_greeting
 
-fish_vi_key_bindings
-# fish_default_key_bindings
-
-#theme_gruvbox dark hard
+set --global fish_key_bindings fish_vi_key_bindings
+set --erase --universal fish_key_bindings
 
 # default editor
 set -x EDITOR nvim
