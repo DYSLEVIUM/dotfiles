@@ -9,6 +9,9 @@ set -x EDITOR nvim
 # bat config
 set -x BAT_THEME gruvbox-dark
 
+# fzf config (defining this disables fzf.fish's built-in defaults, so keep the useful ones)
+set -x FZF_DEFAULT_OPTS '--style=full --cycle --layout=reverse --height=90% --preview-window=wrap --marker="*"'
+
 alias ls='eza --group-directories-first --icons'
 alias ll='eza -laF --icons'
 alias tree='eza --tree --icons'
@@ -56,3 +59,7 @@ set -x PF_COL3 2
 if status is-interactive
     pfetch
 end
+
+# devbar-managed-start
+set -gx NODE_EXTRA_CA_CERTS "$HOME/.devbar/certs/corporate-ca-bundle.pem"
+# devbar-managed-end
