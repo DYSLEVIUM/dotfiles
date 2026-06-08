@@ -9,7 +9,7 @@ set -x EDITOR nvim
 # bat config
 set -x BAT_THEME gruvbox-dark
 
-# fzf config (defining this disables fzf.fish's built-in defaults, so keep the useful ones)
+# fzf config
 set -x FZF_DEFAULT_OPTS '--style=full --cycle --layout=reverse --height=90% --preview-window=wrap --marker="*"'
 
 alias ls='eza --group-directories-first --icons'
