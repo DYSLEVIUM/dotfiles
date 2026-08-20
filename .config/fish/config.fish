@@ -51,6 +51,9 @@ set --export TERM xterm-256color
 # startup
 starship init fish | source
 
+# zoxide (must be last)
+zoxide init fish | source
+
 # pfetch config
 set -x PF_COL1 3
 set -x PF_COL2 8
