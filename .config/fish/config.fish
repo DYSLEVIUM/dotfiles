@@ -17,7 +17,7 @@ alias ll='eza -laF --icons'
 alias tree='eza --tree --icons'
 alias cat='bat -p'
 alias grep='grep --color=auto'
-alias cc='clear'
+alias cc="clear; and printf '\e[3J'; and tmux clear-history"
 alias cp='rsync -ivP'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
